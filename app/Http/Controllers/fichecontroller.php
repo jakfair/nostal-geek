@@ -24,7 +24,7 @@ class fichecontroller extends Controller
      */
     public function create()
     {
-        //
+        return view("fichecontroller.form");
     }
 
     /**
@@ -35,19 +35,32 @@ class fichecontroller extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->file('banner')->hashName();
-        $folder_name = str_replace(' ','_',$request->input('categorie'));
-        $request->file('banner')->move('upload/'.$folder_name,$name);
+        $name = $request->file('banniere')->hashName();
+        $name2 = $request->file('icone')->hashName();
+        $request->file('banniere')->move('upload/',$name);
+        $request->file('icone')->move('upload/',$name2);
+
         $fiche = new fiche();
-        $fiche->titre = $request->input('titre');
-        $fiche->soustitre = $request->input('soustitre');
-        $fiche->date = $request->input('date');
-        $fiche->auteur = $request->input('auteur');
+        $fiche->nom = $request->input('nom');
+        $fiche->description = $request->input('description');
+        $fiche->banniere = "/upload/".$name;
+        $fiche->icone = "/upload/".$name2;
         $fiche->categorie = $request->input('categorie');
-        $fiche->contenu = $request->input('contenu');
-        $fiche->banner = "/upload/".$folder_name."/".$name;
+        $fiche->type = $request->input('type');
+        $fiche->status = "a confirmer";
+        $lien = "";
+        if(!empty($request->input('lienAchat'))){
+            $lien = $lien."<a href='".$request->input('lienAchat')."'>acheter</a>";
+        }
+        if(!empty($request->input('lienEmuler'))){
+            $lien = $lien."<a href='".$request->input('lienEmuler')."'>Emuler</a>";
+        }
+        if(!empty($request->input('lienVoir'))){
+            $lien = $lien."<a href='".$request->input('lienVoir')."'>Voir</a>";
+        }
+        $fiche->lien = $lien;
         $fiche->save();
-        return redirect('/admin/fiches');
+        return redirect('/');
     }
 
     /**
