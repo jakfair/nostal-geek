@@ -17,13 +17,11 @@
             <label for="anime">Dessin animé</label>
         </div>
         <select class="jeu" name="categorie" id="categorie_jeux">
-            <option value="">Choississez la catégorie</option>
             <option value="RPG">RPG</option>
             <option value="FPS">FPS</option>
             <option value="RTS">RTS</option>
         </select>
         <select class="anime" name="categorie" id="categorie_anime">
-            <option value="">Choississez la catégorie</option>
             <option value="isekai">Isekai</option>
             <option value="SCience-Fiction">Science-Fiction</option>
             <option value="fantasy">Fantasy</option>
