@@ -86,28 +86,12 @@ class deficontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $defi = defi::find($id);
-        $defi->fill($request->except('banniere','icone'));
-        $defi->nom = $request->input('nom');
-        $defi->description = $request->input('description');
-        $defi->categorie = $request->input('categorie');
-        $defi->type = $request->input('type');
-        $defi->status = $request->input('status');
-        if(!empty($request->input('lienAchat'))){
-            $defi->lienAchat = $request->input('lienAchat');
-        }
-        if(!empty($request->input('lienEmuler'))){
-            $defi->lienEmuler = $request->input('lienEmuler');
-        }
-        if(!empty($request->input('lienVoir'))){
-            $defi->lienVoir = $request->input('lienVoir');
-        }
 
-        if($request->hasFile('banniere')){
-            $name = $request->file('banniere')->hashName();
-            $request->file('banniere')->move('upload/',$name);
-            $defi->banniere = "/upload/".$name;
-        }
+        $defi = defi::find($id);
+        $defi->intitule = $request->input('intitule');
+        $defi->categorie = $request->input('categorie');
+        $defi->status = $request->input('status');;
+        $defi->nbPoint = $request->input('points');
         if($request->hasFile('icone')){
             $name1 = $request->file('icone')->hashName();
             $request->file('icone')->move('upload/',$name1);
@@ -115,7 +99,7 @@ class deficontroller extends Controller
         }
 
         $defi->save();
-        return redirect()->to('/defi/'.$id);
+        return redirect()->to('/fiche/'.$defi->idJeu);
     }
 
     /**

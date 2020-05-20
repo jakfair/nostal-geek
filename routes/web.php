@@ -21,5 +21,10 @@ Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+'
 
 route::post('/form/addDefis','deficontroller@store');
 route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
+route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

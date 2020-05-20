@@ -3,7 +3,7 @@
 @section('content')
     Formulaire pour créer des défis
     {{$fiche->nom}}
-    <form method="post" id="formDefis" action="/defi/update{{$defis->id}}" enctype="multipart/form-data">
+    <form method="post" id="formDefis" action="/defi/update/{{$defis->id}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <input type="text" name="intitule" placeholder="entrer le defis" value="{{$defis->intitule}}">
         <select class="jeu" name="categorie" id="">
