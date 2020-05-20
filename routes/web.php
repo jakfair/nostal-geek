@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'firstcontroller@index');
+Route::get('/fiche/{id}', 'fichecontroller@show')->where('id', '[0-9]+');
+
+
