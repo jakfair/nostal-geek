@@ -6,17 +6,7 @@
         {{ csrf_field() }}
         <input type="text" name="nom" placeholder="entrez le nom de l'oeuvre" value="{{$fiche->nom}}">
         <input type="text" name="description" placeholder="entrez la description de l'oeuvre" value="{{$fiche->description}}">
-        <div>
-            <input type="radio" id="jeu" name="type" value="jeu" @if($fiche->type == "jeu")
-                   checked @endif>
-            <label for="jeu">Jeu vidéo</label>
-        </div>
-
-        <div>
-            <input type="radio" id="anime" name="type" value="anime" @if($fiche->type == "anime")
-            checked @endif>
-            <label for="anime">Dessin animé</label>
-        </div>
+        <div>Type = {{$fiche ->type}}</div>
         @if($fiche->type == "jeu")
         <select name="categorie" id="categorie_jeux">
             <option value="{{$fiche->categorie}}">{{$fiche->categorie}}</option>
@@ -32,11 +22,16 @@
                 <option value="fantasy">Fantasy</option>
             </select>
         @endif
+        <img src="{{$fiche ->banniere}}">
         <input type="file" name="banniere" accept='image/png, image/jpeg'/>
+        <img src="{{$fiche ->icone}}">
         <input type="file" name="icone" accept='image/png, image/jpeg'/>
+        @if($fiche->type == "jeu")
         <input type="text" name="lienAchat" placeholder="lien pour acheter" value="{{$fiche->lienAchat}}"/>
         <input type="text" name="lienEmuler" placeholder="lien pour emuler" value="{{$fiche->lienEmuler}}"/>
+        @else
         <input type="text" name="lienVoir" placeholder="lien pour regarder" value="{{$fiche->lienVoir}}"/>
+        @endif
         @if($fiche->status == "a confirmer")
             <button type="submit" name="status" value="confirme">Confirmer la fiche</button>
         @endif

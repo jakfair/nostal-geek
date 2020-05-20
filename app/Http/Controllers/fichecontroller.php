@@ -14,7 +14,8 @@ class fichecontroller extends Controller
      */
     public function index()
     {
-        //
+        $fiches = fiche::all();
+        return view("fichecontroller.viewall",["fiches"=>$fiches]);
     }
 
     /**
