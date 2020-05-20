@@ -48,17 +48,25 @@ class fichecontroller extends Controller
         $fiche->categorie = $request->input('categorie');
         $fiche->type = $request->input('type');
         $fiche->status = "a confirmer";
-        $lien = "";
         if(!empty($request->input('lienAchat'))){
-            $lien = $lien."<a href='".$request->input('lienAchat')."'>acheter</a>";
+            $fiche->lienAchat = $request->input('lienAchat');
+        }
+        else{
+            $fiche->lienAchat ="";
         }
         if(!empty($request->input('lienEmuler'))){
-            $lien = $lien."<a href='".$request->input('lienEmuler')."'>Emuler</a>";
+            $fiche->lienEmuler = $request->input('lienEmuler');
+        }
+        else{
+            $fiche->lienEmuler ="";
         }
         if(!empty($request->input('lienVoir'))){
-            $lien = $lien."<a href='".$request->input('lienVoir')."'>Voir</a>";
+            $fiche->lienVoir = $request->input('lienVoir');
         }
-        $fiche->lien = $lien;
+        else{
+            $fiche->lienVoir ="";
+        }
+
         $fiche->save();
         return redirect('/');
     }
@@ -97,21 +105,35 @@ class fichecontroller extends Controller
     public function update(Request $request, $id)
     {
         $fiche = fiche::find($id);
-        $fiche->fill($request->except('banner'));
-        $fiche->titre = $request->input('titre');
-        $fiche->soustitre = $request->input('soustitre');
-        $fiche->date = $request->input('date');
-        $fiche->auteur = $request->input('auteur');
+        $fiche->fill($request->except('banniere','icone'));
+        $fiche->nom = $request->input('nom');
+        $fiche->description = $request->input('description');
         $fiche->categorie = $request->input('categorie');
-        $fiche->contenu = $request->input('contenu');
-        if($request->hasFile('banner')){
-            $name = $request->file('banner')->hashName();
-            $folder_name = str_replace(' ','_',$request->input('categorie'));
-            $request->file('banner')->move('upload/'.$folder_name,$name);
-            $fiche->banner = "/upload/".$folder_name."/".$name;
+        $fiche->type = $request->input('type');
+        $fiche->status = $request->input('status');
+        if(!empty($request->input('lienAchat'))){
+            $fiche->lienAchat = $request->input('lienAchat');
         }
+        if(!empty($request->input('lienEmuler'))){
+            $fiche->lienEmuler = $request->input('lienEmuler');
+        }
+        if(!empty($request->input('lienVoir'))){
+            $fiche->lienVoir = $request->input('lienVoir');
+        }
+
+        if($request->hasFile('banniere')){
+            $name = $request->file('banniere')->hashName();
+            $request->file('banniere')->move('upload/',$name);
+            $fiche->banniere = "/upload/".$name;
+        }
+        if($request->hasFile('icone')){
+            $name1 = $request->file('icone')->hashName();
+            $request->file('icone')->move('upload/',$name1);
+            $fiche->icone = "/upload/".$name1;
+        }
+
         $fiche->save();
-        return redirect('/admin/fiches');
+        return redirect()->to('/fiche/'.$id);
     }
 
     /**
