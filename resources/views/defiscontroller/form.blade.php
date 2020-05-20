@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app')
 
 @section('content')
@@ -9,3 +10,6 @@
     </form>
 
 @endsection
+=======
+Formulaire pour créer des défis
+>>>>>>> 94fc67ab09820061ed1ef5a8c2bcc96396921470

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'firstcontroller@index');
+Route::get('/fiche/all','fichecontroller@index');
 Route::get('/fiche/{id}', 'fichecontroller@show')->where('id', '[0-9]+');
 Route::get('/form/fiche','fichecontroller@create');
 Route::post('/form/addfiche','fichecontroller@store');
