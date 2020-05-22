@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/fiche/edit/{id}','fichecontroller@edit');
     Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
 
+    route::get('/defi/{id}','deficontroller@show')->where('id', '[0-9]+');
+    Route::get('/defi/all','deficontroller@index');
     route::post('/form/addDefis','deficontroller@store');
     route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');

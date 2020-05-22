@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\lienami;
+use App\lienoeuvre;
 use Illuminate\Http\Request;
 use App\profil;
 use Auth;
@@ -51,6 +52,7 @@ class profilcontroller extends Controller
     {
         $profil = profil::findOrFail($id);
         $user = Auth::user();
+        $lienoeuvre = lienoeuvre::where;
         $lienami = lienami::where(function ($query) use($profil) {
             $query->where('idami1', Auth::id())->where('idami2', $profil->id)
                 ->orWhere('idami1', $profil->id)->where('idami2', Auth::id());

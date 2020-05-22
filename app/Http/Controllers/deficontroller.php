@@ -15,8 +15,8 @@ class deficontroller extends Controller
      */
     public function index()
     {
-        $fiches = fiche::all();
-        return view("fichecontroller.viewall",["fiches"=>$fiches]);
+        $defi = defi::all();
+        return view("defiscontroller.viewall",["defi"=>$defi]);
     }
 
     /**
@@ -61,7 +61,7 @@ class deficontroller extends Controller
     public function show($id)
     {
         $defi = defi::findOrFail($id);
-        return view("deficontroller.show",["defi"=>$defi]);
+        return view("defiscontroller.show",["defi"=>$defi]);
     }
 
     /**

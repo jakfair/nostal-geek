@@ -3,8 +3,10 @@
 @section('content')
 ceci est un profil
 {{$profil->name}}
+{{$lienoeuvre->idfiche}}
     @if($user->id == $profil->id)
     c'est toi même
+
     @else
         @if($lienami == "none")
         <form method="post" id="formAmi" action="/profil/addami">
