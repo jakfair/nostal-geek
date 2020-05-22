@@ -16,7 +16,8 @@ class profilcontroller extends Controller
      */
     public function index()
     {
-
+        $profils = profil::all();
+        return view("profilcontroller.viewall",["profils"=>$profils]);
     }
 
     /**
@@ -68,7 +69,8 @@ class profilcontroller extends Controller
      */
     public function edit($id)
     {
-
+        $profil = profil::findOrFail($id);
+        return view("profilcontroller.edit",["profil"=>$profil]);
     }
 
     /**
@@ -80,7 +82,14 @@ class profilcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $profil = profil::find($id);
+        $profil ->email = $request->input('email');
+        $profil ->password = $request->input('password');
+        $profil ->name = $request->input('name');
+        $profil ->age = $request->input('age');
+        $profil->save();
+        $user = Auth::user();
+        return redirect()->to('/profil/'.$user->id);
     }
 
     /**
