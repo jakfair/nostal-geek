@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>App Name - @yield('title')</title>
+    <title>Nostal-Geek @yield('title')</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
