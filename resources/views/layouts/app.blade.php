@@ -7,6 +7,7 @@
 <body>
 @section('sidebar')
     This is the master sidebar.
+    <a href="/logout">logout</a>
 @show
 
 <div class="container">

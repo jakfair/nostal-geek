@@ -11,20 +11,23 @@
 |
 */
 
-Route::get('/', 'firstcontroller@index');
-Route::get('/fiche/all','fichecontroller@index');
-Route::get('/fiche/{id}', 'fichecontroller@show')->where('id', '[0-9]+');
-Route::get('/form/fiche','fichecontroller@create');
-Route::post('/form/addfiche','fichecontroller@store');
-Route::get('/fiche/edit/{id}','fichecontroller@edit');
-Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
 
-route::post('/form/addDefis','deficontroller@store');
-route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
-route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
-
+route::get('/register','RegisterController@_construct');
 
 
 Auth::routes();
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', 'firstcontroller@index');
+    Route::get('/fiche/all','fichecontroller@index');
+    Route::get('/fiche/{id}', 'fichecontroller@show')->where('id', '[0-9]+');
+    Route::get('/form/fiche','fichecontroller@create');
+    Route::post('/form/addfiche','fichecontroller@store');
+    Route::get('/fiche/edit/{id}','fichecontroller@edit');
+    Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
+    route::post('/form/addDefis','deficontroller@store');
+    route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
+    route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
