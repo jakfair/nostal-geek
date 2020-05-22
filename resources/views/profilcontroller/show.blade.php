@@ -3,7 +3,9 @@
 @section('content')
 ceci est un profil
 {{$profil->name}}
-{{$lienoeuvre->idfiche}}
+@foreach($lienoeuvres as $lienoeuvre)
+    {{$lienoeuvre->nom}}
+@endforeach
     @if($user->id == $profil->id)
     c'est toi même
 

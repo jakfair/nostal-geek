@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\lienami;
 use App\lienoeuvre;
+use App\fiche;
 use Illuminate\Http\Request;
 use App\profil;
 use Auth;
@@ -52,7 +53,6 @@ class profilcontroller extends Controller
     {
         $profil = profil::findOrFail($id);
         $user = Auth::user();
-        $lienoeuvre = lienoeuvre::where;
         $lienami = lienami::where(function ($query) use($profil) {
             $query->where('idami1', Auth::id())->where('idami2', $profil->id)
                 ->orWhere('idami1', $profil->id)->where('idami2', Auth::id());
@@ -60,7 +60,8 @@ class profilcontroller extends Controller
         if (empty($lienami)) {
             $lienami = "none";
         }
-        return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami]);
+        $lienoeuvres = fiche::join('lienoeuvre', 'animejeu.id', '=','lienoeuvre.idfiche')->where('lienoeuvre.iduser','=', $id)->get();
+        return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami, "lienoeuvres"=>$lienoeuvres]);
     }
 
     /**
