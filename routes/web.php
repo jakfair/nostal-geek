@@ -32,5 +32,6 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
 
     route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
+    route::post('profil/addami','profilcontroller@addami');
 });
 

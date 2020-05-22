@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\lienami;
 use Illuminate\Http\Request;
 use App\profil;
+use Auth;
 
 class profilcontroller extends Controller
 {
@@ -47,7 +49,15 @@ class profilcontroller extends Controller
     public function show($id)
     {
         $profil = profil::findOrFail($id);
-        return view("profilcontroller.show",["profil"=>$profil]);
+        $user = Auth::user();
+        $lienami = lienami::where(function ($query) use($profil) {
+            $query->where('idami1', Auth::id())->where('idami2', $profil->id)
+                ->orWhere('idami1', $profil->id)->where('idami2', Auth::id());
+        })->first();
+        if (empty($lienami)) {
+            $lienami = "none";
+        }
+        return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami]);
     }
 
     /**
@@ -82,6 +92,15 @@ class profilcontroller extends Controller
     public function destroy($id)
     {
 
+    }
+    public function addami(Request $request)
+    {
+        $newlien = new lienami();
+        $newlien->idami1 = auth::id();
+        $newlien->idami2 = $request->input('idami');
+        $newlien->status = "en attente";
+        $newlien->save();
+        return redirect()->to('/profil/'.$request->input('idami'));
     }
 }
 
