@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\lienami;
-use App\lienoeuvre;
 use Illuminate\Http\Request;
-use App\profil;
 use Auth;
 
-class profilcontroller extends Controller
+class amicontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,12 @@ class profilcontroller extends Controller
      */
     public function index()
     {
-        $profils = profil::all();
-        return view("profilcontroller.viewall",["profils"=>$profils]);
+        $user = Auth::user();
+        $lienamis = lienami::join('users', function($join)
+        {
+            $join->on('users.id', '=', 'lienami.idami1')->orOn('users.id', '=', 'lienami.idami2');
+        })->where('users.id', '!=', auth::id())->distinct()->get();
+        return view("amicontroller.viewall",["lienamis"=>$lienamis,"user"=>$user]);
     }
 
     /**
@@ -39,7 +41,12 @@ class profilcontroller extends Controller
      */
     public function store(Request $request)
     {
-
+        $newlien = new lienami();
+        $newlien->idami1 = auth::id();
+        $newlien->idami2 = $request->input('idami');
+        $newlien->status = "en attente";
+        $newlien->save();
+        return redirect()->to('/profil/'.$request->input('idami'));
     }
 
     /**
@@ -50,17 +57,7 @@ class profilcontroller extends Controller
      */
     public function show($id)
     {
-        $profil = profil::findOrFail($id);
-        $user = Auth::user();
-        $lienoeuvre = lienoeuvre::where;
-        $lienami = lienami::where(function ($query) use($profil) {
-            $query->where('idami1', Auth::id())->where('idami2', $profil->id)
-                ->orWhere('idami1', $profil->id)->where('idami2', Auth::id());
-        })->first();
-        if (empty($lienami)) {
-            $lienami = "none";
-        }
-        return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami]);
+
     }
 
     /**
@@ -71,9 +68,7 @@ class profilcontroller extends Controller
      */
     public function edit($id)
     {
-        $profil = profil::findOrFail($id);
-        $user = Auth::user();
-        return view("profilcontroller.edit",["profil"=>$profil]);
+
     }
 
     /**
@@ -83,16 +78,12 @@ class profilcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $profil = profil::find($id);
-        $profil ->email = $request->input('email');
-        $profil ->password = $request->input('password');
-        $profil ->name = $request->input('name');
-        $profil ->age = $request->input('age');
-        $profil->save();
-        $user = Auth::user();
-        return redirect()->to('/profil/'.$user->id);
+        $lienami = lienami::where('idami1','=',$request->input('idami1'))->where('idami2','=',$request->input('idami2'))->first();
+        $lienami->status = $request->input('value');
+        $lienami->save();
+        return redirect('/profil/allami');
     }
 
     /**
@@ -101,9 +92,10 @@ class profilcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-
+        $lienami = lienami::where('idami1','=',$request->input('idami1'))->where('idami2','=',$request->input('idami2'))->first()->delete();
+        return redirect('/profil/allami');
     }
 }
 
