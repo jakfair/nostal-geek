@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\lienami;
 use Illuminate\Http\Request;
-use App\profil;
 use Auth;
 
-class profilcontroller extends Controller
+class amicontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,11 @@ class profilcontroller extends Controller
      */
     public function index()
     {
-        $profils = profil::all();
-        return view("profilcontroller.viewall",["profils"=>$profils]);
+        $lienamis = lienami::join('users', function($join)
+        {
+            $join->on('users.id', '=', 'lienami.idami1')->orOn('users.id', '=', 'lienami.idami2');
+        })->where('users.id', '!=', auth::id())->distinct()->get();
+        return view("amicontroller.viewall",["lienamis"=>$lienamis]);
     }
 
     /**
@@ -38,7 +40,12 @@ class profilcontroller extends Controller
      */
     public function store(Request $request)
     {
-
+        $newlien = new lienami();
+        $newlien->idami1 = auth::id();
+        $newlien->idami2 = $request->input('idami');
+        $newlien->status = "en attente";
+        $newlien->save();
+        return redirect()->to('/profil/'.$request->input('idami'));
     }
 
     /**
@@ -49,16 +56,7 @@ class profilcontroller extends Controller
      */
     public function show($id)
     {
-        $profil = profil::findOrFail($id);
-        $user = Auth::user();
-        $lienami = lienami::where(function ($query) use($profil) {
-            $query->where('idami1', Auth::id())->where('idami2', $profil->id)
-                ->orWhere('idami1', $profil->id)->where('idami2', Auth::id());
-        })->first();
-        if (empty($lienami)) {
-            $lienami = "none";
-        }
-        return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami]);
+
     }
 
     /**
@@ -69,8 +67,7 @@ class profilcontroller extends Controller
      */
     public function edit($id)
     {
-        $profil = profil::findOrFail($id);
-        return view("profilcontroller.edit",["profil"=>$profil]);
+
     }
 
     /**
@@ -82,14 +79,6 @@ class profilcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $profil = profil::find($id);
-        $profil ->email = $request->input('email');
-        $profil ->password = $request->input('password');
-        $profil ->name = $request->input('name');
-        $profil ->age = $request->input('age');
-        $profil->save();
-        $user = Auth::user();
-        return redirect()->to('/profil/'.$user->id);
     }
 
     /**
@@ -100,7 +89,6 @@ class profilcontroller extends Controller
      */
     public function destroy($id)
     {
-
     }
 }
 

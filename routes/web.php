@@ -31,11 +31,13 @@ Route::group(['middleware' => ['auth']], function() {
     route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
 
-    route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
-    route::post('profil/addami','profilcontroller@addami');
     Route::get('/profil/all','profilcontroller@index');
+    route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
     Route::post('/profil/update/{id}','profilcontroller@update')->where('id', '[0-9]+');
     Route::get('/profil/edit/{id}','profilcontroller@edit');
+
+    route::get('profil/allami','amicontroller@index');
+    route::post('profil/addami','amicontroller@store');
 
 });
 
