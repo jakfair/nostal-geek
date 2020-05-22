@@ -1,3 +1,102 @@
-.anime{
-    display: none;
+/*.anime{*/
+/*    display: none;*/
+/*}*/
+
+*{
+    margin: 0 auto;
+}
+
+.container{
+    height: 100%;
+    margin-top: 0;
+    background-image: url("../img/fond.svg");
+}
+
+.avatar{
+    margin-top: 7vh;
+    text-align: center;
+}
+
+.avatar img{
+    width: 60%;
+}
+
+.card-body{
+    width: 60%;
+    margin-top: 10vh;
+    text-align: center;
+    background-color: green;
+    border-radius: 2vh;
+    border: solid #707070;
+}
+
+h1{
+    padding-top: 2vh;
+    font-size: 3rem;
+    color: #95291E;
+    font-family: Raleway;
+}
+
+h2{
+    padding-top: .5vh;
+    padding-bottom: 1vh;
+    margin-right: 1vh;
+    color: #EE7247;
+    text-align: right;
+    font-family: Raleway;
+}
+
+.col-md-6 input[type=email]{
+    background-color: #52BEC8;
+    border-radius: 5vh;
+    border: none;
+    height: 3vh;
+    width: 75%;
+    margin-top: 3vh;
+    font-size: 1.8rem;
+}
+
+.mail{
+    height: 0vh;
+}
+
+.mail img{
+    width: 9%;
+    position: relative;
+    top: -3vh;
+    left: 11vh;
+}
+
+.form-control{
+    padding-left: 1vh;
+}
+
+.col-md-6 input[type=password]{
+    background-color: #EE7249;
+    border-radius: 5vh;
+    border: none;
+    height: 3vh;
+    width: 75%;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    font-size: 1.8rem;
+}
+.mdp{
+    height: 0vh
+}
+.mdp img{
+    width: 9%;
+    position: relative;
+    top: -4vh;
+    left: 11vh;
+}
+
+.next img{
+    width: 15%;
+}
+
+.form-check-label{
+    font-family: Raleway;
+    font-size: 2rem;
+    color: #EE7247;
 }
