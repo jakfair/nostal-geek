@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     route::get('profil/allami','amicontroller@index');
     route::post('profil/addami','amicontroller@store');
+    route::get('profil/updateami','amicontroller@update');
+    route::get('profil/deleteami','amicontroller@destroy');
 
 });
 

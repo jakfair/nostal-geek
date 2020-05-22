@@ -15,11 +15,12 @@ class amicontroller extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $lienamis = lienami::join('users', function($join)
         {
             $join->on('users.id', '=', 'lienami.idami1')->orOn('users.id', '=', 'lienami.idami2');
         })->where('users.id', '!=', auth::id())->distinct()->get();
-        return view("amicontroller.viewall",["lienamis"=>$lienamis]);
+        return view("amicontroller.viewall",["lienamis"=>$lienamis,"user"=>$user]);
     }
 
     /**
@@ -77,8 +78,12 @@ class amicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $lienami = lienami::where('idami1','=',$request->input('idami1'))->where('idami2','=',$request->input('idami2'))->first();
+        $lienami->status = $request->input('value');
+        $lienami->save();
+        return redirect('/profil/allami');
     }
 
     /**
@@ -87,8 +92,10 @@ class amicontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $lienami = lienami::where('idami1','=',$request->input('idami1'))->where('idami2','=',$request->input('idami2'))->first()->delete();
+        return redirect('/profil/allami');
     }
 }
 
