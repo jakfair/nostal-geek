@@ -49,6 +49,7 @@ class profilcontroller extends Controller
     public function show($id)
     {
         $profil = profil::findOrFail($id);
+        $user = Auth::user();
         return view("profilcontroller.show",["profil"=>$profil]);
     }
 
@@ -61,6 +62,7 @@ class profilcontroller extends Controller
     public function edit($id)
     {
         $profil = profil::findOrFail($id);
+        $user = Auth::user();
         return view("profilcontroller.edit",["profil"=>$profil]);
     }
 
