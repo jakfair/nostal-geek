@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <form method="get" action="/search">
+        <input type="search" id="searchbar" name="search" placeholder="Recherchez une oeuvre">
+        <button id="searchbar-button"><img src="/img/search.png"></button>
+    </form>
     <h1 style="margin-bottom: 25px;">Les oeuvres de votre vie</h1>
     <a id="linkformfiche" href="/form/fiche">Vous ne trouvez pas votre oeuvre favorite ? Ajoutez la !</a>
     <div id="container-buttonsearch">
@@ -13,7 +17,7 @@
             @foreach($fiches as $fiche)
                 @if($fiche->type == "anime")
                     <a href="/fiche/{{$fiche->id}}" class="fichesearch">
-                        <div class="illu" style="background-image: url('{{$fiche->banniere}}')"></div>
+                        <div class="illu" style="background-image: url('{{$fiche->icone}}')"></div>
                         <div class="info">
                             <h4>{{$fiche->nom}}</h4>
                             <span>{{$fiche->categorie}}</span>
@@ -27,7 +31,7 @@
             @foreach($fiches as $fiche)
                 @if($fiche->type == "jeu")
                     <a href="/fiche/{{$fiche->id}}" class="fichesearch">
-                        <div class="illu" style="background-image: url('{{$fiche->banniere}}')"></div>
+                        <div class="illu" style="background-image: url('{{$fiche->icone}}')"></div>
                         <div class="info">
                             <h4>{{$fiche->nom}}</h4>
                             <span>{{$fiche->categorie}}</span>
@@ -41,7 +45,7 @@
             @foreach($fiches as $fiche)
                 @if($fiche->type == "cinema")
                     <a href="/fiche/{{$fiche->id}}" class="fichesearch">
-                        <div class="illu" style="background-image: url('{{$fiche->banniere}}')"></div>
+                        <div class="illu" style="background-image: url('{{$fiche->icone}}')"></div>
                         <div class="info">
                             <h4>{{$fiche->nom}}</h4>
                             <span>{{$fiche->categorie}}</span>
