@@ -20,3 +20,10 @@ function ToggleType(type){
         }
     }
 }
+
+$(document).ready(function(){
+
+    $("#fav").click(function(){
+        $("#fond").slideToggle("slow");
+    });
+});

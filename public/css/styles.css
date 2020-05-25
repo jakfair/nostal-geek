@@ -377,6 +377,10 @@ h3{
     width: 75%;
 }
 
+#fond{
+    display: none;
+}
+
 .categorie p{
     margin-top: 1vh;
     font-family: 'Raleway';

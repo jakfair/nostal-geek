@@ -42,7 +42,7 @@
     </div>
     <div id="favoris">
         <div id="list">
-            <img src="/img/star.png"/>
+            <img id="fav" src="/img/star.png"/>
             <img src="/img/amis.png"/>
             <img src="/img/films.png"/>
             <img src="/img/jeux.png"/>
