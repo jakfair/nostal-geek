@@ -20,6 +20,8 @@ a{
 body{
     background-image: url("../img/fond.svg");
     background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
 .container{
     margin-top: 0;
