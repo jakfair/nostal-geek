@@ -22,7 +22,7 @@ a{
     margin-top: 0;
     background-image: url("../img/fond.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    /*background-size: cover;*/
     margin-bottom: 9vh;
     text-align: center;
     width: 100%;
@@ -339,4 +339,57 @@ h3{
     width: 200px;
     height: 200px;
     border-radius: 50px;
+}
+
+#favoris{
+    padding-top: 35vh;
+}
+
+#favoris #list{
+    width: 75%;
+    height: 6vh;
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr 1fr;
+    grid-template-rows : 5vh;
+    background-image: url("../img/back.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#favoris #list img{
+    width: 50%;
+}
+
+#fond{
+    background-color: #EE724A;
+}
+
+#list_favoris{
+    width: 75%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    display: grid;
+    grid-template-columns : 1fr 1fr 1fr;
+    grid-gap: 2vh;
+}
+
+#list_favoris img{
+    width: 75%;
+}
+
+.categorie p{
+    margin-top: 1vh;
+    font-family: 'Raleway';
+    color: white;
+    font-size: 1.2rem;
+}
+
+#next button[type=button]{
+    background: transparent;
+    border: none;
+}
+
+#next img{
+    width: 50%;
+    margin-bottom: .5vh;
 }
