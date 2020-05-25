@@ -3,8 +3,7 @@
     <title>Nostal-Geek @yield('title')</title>
     <link href="{{ asset('css/styles.css') }}?v=1" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, user-scalable=false;">
+    <meta name="viewport" content="width=device-width, user-scalable=false, height=device-height, initial-scale=1.0">
 
 </head>
 <body>
