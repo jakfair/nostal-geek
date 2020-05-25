@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\defi;
 use Illuminate\Http\Request;
 use App\fiche;
 
@@ -81,7 +82,8 @@ class fichecontroller extends Controller
     public function show($id)
     {
         $fiche = fiche::findOrFail($id);
-        return view("fichecontroller.show",["fiche"=>$fiche]);
+        $defis = defi::where('defis.idJeu','=', $fiche->id)->inRandomOrder()->limit(5)->get();
+        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
     }
 
     /**
