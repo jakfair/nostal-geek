@@ -1,11 +1,12 @@
 <html>
 <head>
     <title>Nostal-Geek @yield('title')</title>
-    <link href="{{ asset('css/styles.css') }}?v=1" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}?v=1.1" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
 
 </head>
 <body>
+<img id="imagedefond" src="/img/fond.svg">
 @section('sidebar')
 {{--    This is the master sidebar.--}}
 {{--    <a href="/logout">logout</a>--}}

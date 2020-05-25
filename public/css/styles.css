@@ -17,11 +17,11 @@ a{
     text-decoration: none;
     font-size: 2rem;
 }
-body{
-    background-image: url("../img/fond.svg");
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
+#imagedefond{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
 }
 .container{
     margin-top: 0;
@@ -72,6 +72,7 @@ input{
     border: none;
     height: 3vh;
     width: 75%;
+    min-height: 3vh;
     margin-top: 3vh;
     font-size: 1.8rem;
 }
