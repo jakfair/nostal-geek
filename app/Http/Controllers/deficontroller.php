@@ -16,7 +16,8 @@ class deficontroller extends Controller
     public function index()
     {
         $defi = defi::all();
-        return view("defiscontroller.viewall",["defi"=>$defi]);
+        $general = defi::where('defis.idJeu','=', '0')->inRandomOrder()->limit(3)->get();
+        return view("defiscontroller.viewall",["defi"=>$defi,"general"=>$general]);
     }
 
     /**

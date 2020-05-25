@@ -5,4 +5,6 @@
 
         {{$defi->intitule}}
         {{$defi->nbPoint}}
+
+
 @endsection
