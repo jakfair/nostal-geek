@@ -7,6 +7,8 @@
     formulaire de création d'utilisateur
     <form method="post" id="formuser" action="/profil/update/{{$profil->id}}" enctype="multipart/form-data">
         {{ csrf_field() }}
+        <input id="avatar" type="file" name="avatar" style="opacity: 0">
+        <label for="avatar"><img src="{{$profil->avatar}}"></label>
         <input type="email" name="email" placeholder="adresse mail" value="{{$profil->email}}" >
         <input type="password" id="pass" name="password"
            minlength="8" required placeholder="mot de passe" value="">
