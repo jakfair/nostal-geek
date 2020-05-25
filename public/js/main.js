@@ -57,7 +57,11 @@ function toggleprofil(type){
     document.getElementById("fond").style.marginLeft ="-"+type+"00vw";
 
 }
-
+$(":input").focus(function() {
+    alert("pouet");
+    var height = $("body").css('height');
+    $("body").css('height', height);
+});
 //
 // $(document).ready(function(){
 //
