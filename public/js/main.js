@@ -53,9 +53,28 @@ function togglesearch(type){
     document.getElementById("buttonsearch"+type).style.borderBottom = "8px solid white";
 }
 
-$(document).ready(function(){
+function toggleprofil(type){
+    document.getElementById("fond").style.marginLeft ="-"+type+"00vw";
 
-    $("#fav").click(function(){
-        $("#fond").slideToggle("slow");
-    });
-});
+}
+
+//
+// $(document).ready(function(){
+//
+//     $("#fav").click(function(){
+//         $("#fond").slideToggle("slow");
+//     });
+//
+//     $("#dessins").click(function(){
+//         $("#fond_dessin").slideToggle("slow");
+//     });
+//
+//     $("#movie").click(function(){
+//         $("#fond_films").slideToggle("slow");
+//     });
+//
+//     $("#game").click(function(){
+//         $("#fond_jeux").slideToggle("slow");
+//     });
+//
+// });

@@ -411,7 +411,7 @@ h3{
 }
 
 #favoris{
-    padding-top: 35vh;
+    padding-top: 25vh;
 }
 
 #favoris #list{
@@ -430,11 +430,25 @@ h3{
 }
 
 #fond{
+    display: grid;
+    grid-template-columns: 100vw 100vw 100vw 100vw;
+    background-color: #EE724A;
+    transition-duration: .5s;
+}
+
+#fond_dessin{
+    background-color: #EE724A;
+}
+
+#fond_films{
+    background-color: #EE724A;
+}
+
+#fond_jeux{
     background-color: #EE724A;
 }
 
 #list_favoris{
-    width: 75%;
     padding-top: 5vh;
     padding-bottom: 5vh;
     display: grid;
@@ -446,10 +460,6 @@ h3{
     width: 75%;
 }
 
-#fond{
-    display: none;
-}
-
 .categorie p{
     margin-top: 1vh;
     font-family: 'Raleway';
@@ -457,12 +467,3 @@ h3{
     font-size: 1.2rem;
 }
 
-#next button[type=button]{
-    background: transparent;
-    border: none;
-}
-
-#next img{
-    width: 50%;
-    margin-bottom: .5vh;
-}
