@@ -57,16 +57,6 @@ function toggleprofil(type){
     document.getElementById("fond").style.marginLeft ="-"+type+"00vw";
 
 }
-$(window).resize(function()
-{
-
-    var viewportWidth = $(window).width();
-
-    var viewportHeight = $(window).height();
-
-    alert('pouet');
-
-});
 //
 // $(document).ready(function(){
 //
