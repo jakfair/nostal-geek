@@ -14,7 +14,7 @@ class firstcontroller extends Controller
     } // cette fonction prend 3 articles (id : 1, 2 et 3) pour l'affichage sur la home ?
 
     public function search(Request $request){
-        $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->get();
+        $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->get();
         return view("firstcontroller.search",["fiches"=>$fiches]);
     }
 }

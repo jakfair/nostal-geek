@@ -32,11 +32,7 @@
         @else
         <input type="text" name="lienVoir" placeholder="lien pour regarder" value="{{$fiche->lienVoir}}"/>
         @endif
-        @if($fiche->status == "a confirmer")
-            <button type="submit" name="status" value="confirme">Confirmer la fiche</button>
-        @endif
-        @if($fiche->status == "confirme")
-            <button type="submit" name="status" value="a confirmer">Deconfirmer la fiche</button>
-        @endif
+        <button type="submit" name="status" value="confirme">Confirmer la fiche</button>
+
     </form>
 @endsection
