@@ -429,11 +429,14 @@ h3{
 }
 
 #fond{
+    display: grid;
+    grid-template-columns: 100vw 100vw 100vw 100vw;
     background-color: #EE724A;
+    transition-duration: .5s;
 }
 
+
 #list_favoris{
-    width: 75%;
     padding-top: 5vh;
     padding-bottom: 5vh;
     display: grid;
