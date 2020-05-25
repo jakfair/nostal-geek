@@ -19,6 +19,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/', 'firstcontroller@index');
     Route::get('/search','firstcontroller@search');
+    route::get('/propositionjeu','firstcontroller@propositionjeu');
+    route::get('/propositionanime','firstcontroller@propositionanime');
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::get('/fiche/all','fichecontroller@index');
@@ -43,6 +45,8 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('profil/addami','amicontroller@store');
     route::get('profil/updateami','amicontroller@update');
     route::get('profil/deleteami','amicontroller@destroy');
+
+
 
 });
 
