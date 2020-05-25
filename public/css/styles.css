@@ -27,6 +27,7 @@ a{
     text-align: center;
     width: 100%;
     min-height: 85vh;
+    overflow: hidden;
 }
 
 .avatar{
@@ -339,4 +340,71 @@ h3{
     width: 200px;
     height: 200px;
     border-radius: 50px;
+}
+#container-buttonsearch{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 50px;
+}
+#container-buttonsearch .buttonsearch img{
+    width: 200px;
+}
+.buttonsearch{
+    padding-bottom: 15px;
+    border-bottom-width: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#buttonsearch0{
+    border-bottom: solid 8px white;
+}
+#container-categorie{
+    display: grid;
+    grid-template-columns: 100vw 100vw 100vw;
+    margin-top: 50px;
+    transition-duration: 0.5s;
+}
+#container-categorie>div{
+    height: 60vh;
+    margin: 0;
+}
+#container-categorie #anime{
+}
+.fichesearch{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: #52BEC8;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    margin: 0px 50px;
+    margin-bottom: 15px;
+}
+.fichesearch .illu{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    margin-right: 15px;
+}
+.fichesearch .info{
+    text-align: left;
+    margin: 0;
+}
+.fichesearch h4{
+    font-size: 3rem;
+}
+.fichesearch p{
+    font-size: 2rem;
+}
+.fichesearch span{
+    font-size: 1.5rem;
+}
+#linkformfiche{
+    background-color: #52BEC8;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bolder;
 }
