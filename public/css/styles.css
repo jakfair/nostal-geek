@@ -17,15 +17,16 @@ a{
     text-decoration: none;
     font-size: 2rem;
 }
-
-.container{
-    margin-top: 0;
+body{
     background-image: url("../img/fond.svg");
     background-repeat: no-repeat;
-    /*background-size: cover;*/
+}
+.container{
+    margin-top: 0;
+
     margin-bottom: 9vh;
     text-align: center;
-    width: 100%;
+    width: 100vw;
     min-height: 85vh;
     overflow: hidden;
 }
