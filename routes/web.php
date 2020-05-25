@@ -17,6 +17,7 @@ route::get('/register','RegisterController@_construct');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
+
     Route::get('/', 'firstcontroller@index');
     Route::get('/search','firstcontroller@search');
     route::get('/propositionjeu','firstcontroller@propositionjeu');

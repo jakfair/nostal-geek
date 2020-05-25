@@ -260,13 +260,12 @@ h3{
     font-style: italic;
 }
 .card-defi{
-    background-color: #EE7247;
+    background-color: #e84833;
     width: 88vw;
-    height: 100px;
     margin-top: 30px;
     margin-bottom: 50px;
     text-align: left;
-    padding: 15px;
+    padding: 20px;
     border-radius: 50px;
     color: white;
 }
@@ -296,7 +295,7 @@ h3{
 #info-general{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 50px 100px;
+    padding: 50px 20px;
     padding-bottom: 0;
 }
 #info-general .avatar{
@@ -411,7 +410,7 @@ h3{
 }
 
 #favoris{
-    padding-top: 35vh;
+    padding-top: 10vh;
 }
 
 #favoris #list{
@@ -430,11 +429,14 @@ h3{
 }
 
 #fond{
+    display: grid;
+    grid-template-columns: 100vw 100vw 100vw 100vw;
     background-color: #EE724A;
+    transition-duration: .5s;
 }
 
+
 #list_favoris{
-    width: 75%;
     padding-top: 5vh;
     padding-bottom: 5vh;
     display: grid;
@@ -461,4 +463,77 @@ h3{
 #next img{
     width: 50%;
     margin-bottom: .5vh;
+}
+#infofiche{
+    height: 400px;
+    color: white;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+#infofiche>*{
+    position: absolute;
+}
+#infofiche>img{
+    width: 150px;
+    top: 15px;
+    left: 15px;
+}
+#infofiche>h4{
+    width: 100%;
+    text-align: center;
+    top: 15px;
+    font-size: 2rem;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+#infofiche>span{
+     bottom: 15px;
+     left: 15px;
+    font-size: 1.5rem;
+ }
+#infofiche>div{
+    bottom: 15px;
+    right: 15px;
+}
+#infofiche>div a{
+    margin-left: 15px;
+}
+#infofiche>div img{
+    width: 70px;
+    filter: invert(1);
+}
+#titleformdefi{
+    font-size: 2.5rem;
+    color: white;
+}
+#formDefis{
+    background-color: #52BEC8;
+    width: 88vw;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 50px;
+    color: white;
+}
+#formDefis>*{
+    display: block;
+    margin-bottom: 15px;
+}
+#formDefis input{
+    padding: 15px;
+}
+#formDefis select{
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 25px;
+}
+#formDefis option{
+    font-size: 0.6rem;
+    background-color: white;
+}
+#formDefis button{
+    border: none;
+    background: none;
 }

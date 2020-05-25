@@ -9,7 +9,7 @@
         {{ csrf_field() }}
         <input type="email" name="email" placeholder="adresse mail" value="{{$profil->email}}" >
         <input type="password" id="pass" name="password"
-           minlength="8" required placeholder="mot de passe" value="{{$profil->password}}">
+           minlength="8" required placeholder="mot de passe" value="">
         <input type="text" name="name" placeholder="Nom" value="{{$profil->name}}">
         <input type="text" name="age" placeholder="Age" value="{{$profil->age}}">
         <button type="submit">Envoyer</button>
