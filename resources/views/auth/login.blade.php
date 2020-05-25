@@ -6,7 +6,7 @@
     <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 </head>
 <body>
-<img id="imagedefond" src="/img/fond.svg">
+<img id="imagedefond" src="/img/fond.png">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

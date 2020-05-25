@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<img id="imagedefond" src="/img/fond.svg">
+<img id="imagedefond" src="/img/fond.png">
 @section('sidebar')
 {{--    This is the master sidebar.--}}
 {{--    <a href="/logout">logout</a>--}}
