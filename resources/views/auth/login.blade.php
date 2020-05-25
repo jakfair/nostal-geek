@@ -1,6 +1,12 @@
-@extends('layouts.app')
+<html>
+<head>
+    <title>Nostal-Geek @yield('title')</title>
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+</head>
+<body>
 
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,8 +24,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                <div class="mail"><img src="/img/mail.png"/></div>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Entrez votre mail ici !">
+                                <div class="icon"><img src="/img/mail.png"/></div>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -32,8 +38,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                <div class="mdp"><img src="/img/passeword.png"/></div>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Entrez votre MDP ici !">
+                                <div class="icon mdp-icon"><img src="/img/passeword.png"/></div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -49,7 +55,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        Se souvenir de moi
                                     </label>
                                 </div>
                             </div>
@@ -62,16 +68,18 @@
                                 <div class="mdpoublie">
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
+                                            Mot de passe oubliée ?
                                         </a>
                                     @endif
                                 </div>
                             </div>
                         </div>
                     </form>
+                    <a id="subscribe-link" href="/register">S'inscrice ici</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+</body>
+</html>

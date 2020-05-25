@@ -12,7 +12,13 @@
 @show
 
 <div class="container">
+    <a id="logo" href="/"><img src="/img/logo.png"></a><br>
     @yield('content')
 </div>
+<footer>
+    <a href="/logout"><img src="/img/logout.png"/></a>
+    <a class="profil-link" href="/profil/{{Auth::user()->id}}"><img src="/img/people.png"/></a>
+    <a href="#"><img src="/img/settings.png"/></a>
+</footer>
 </body>
 </html>

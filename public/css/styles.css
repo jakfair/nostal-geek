@@ -4,12 +4,29 @@
 
 *{
     margin: 0 auto;
+    font-family: Raleway;
+}
+#subscribe-link{
+    margin-bottom: 15px;
+}
+#logo img{
+    width: 150px;
+}
+a{
+    color: #EE7247;
+    text-decoration: none;
+    font-size: 2rem;
 }
 
 .container{
-    height: 100%;
     margin-top: 0;
     background-image: url("../img/fond.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 9vh;
+    text-align: center;
+    width: 100%;
+    min-height: 85vh;
 }
 
 .avatar{
@@ -28,6 +45,7 @@
     background-color: rgba(255,255,255,0.8);
     border-radius: 2vh;
     border: solid #707070;
+    padding: 25px;
 }
 
 h1{
@@ -45,9 +63,7 @@ h2{
     text-align: right;
     font-family: Raleway;
 }
-
-.col-md-6 input[type=email]{
-    background-color: #52BEC8;
+input{
     border-radius: 5vh;
     border: none;
     height: 3vh;
@@ -55,17 +71,30 @@ h2{
     margin-top: 3vh;
     font-size: 1.8rem;
 }
+.col-md-6 input[type=email],#age{
+    background-color: #52BEC8;
+}
+#age{
+    margin-bottom: 25px;
+}
 
-.mail{
+.icon{
     height: 0vh;
 }
 
-.mail img{
+.icon img{
     width: 9%;
     position: relative;
     top: -3vh;
     left: 11vh;
 }
+.mdp-icon img{
+    top: -4vh;
+}
+.age-icon img{
+    top: -4.5vh;
+}
+
 
 .form-control{
     padding-left: 1vh;
@@ -73,30 +102,16 @@ h2{
 
 .col-md-6 input[type=password]{
     background-color: #EE7249;
-    border-radius: 5vh;
-    border: none;
-    height: 3vh;
-    width: 75%;
-    margin-top: 3vh;
     margin-bottom: 1vh;
-    font-size: 1.8rem;
 }
-.mdp{
-    height: 0vh
+#name{
+    background: #52BEC8;
 }
-.mdp img{
-    width: 9%;
-    position: relative;
-    top: -4vh;
-    left: 11vh;
-}
-
 .next img{
     width: 15%;
 }
 
 .form-check-label{
-    font-family: Raleway;
     font-size: 1.8rem;
     color: #EE7247;
 }
@@ -115,6 +130,10 @@ h2{
     height: 2vh;
     border-radius: 10px;
     transition-duration: 0.5s;
+    margin:0px;
+}
+.form-check input[type=checkbox]:after{
+    content: " ";
 }
 
 input[type="checkbox"]:checked {
@@ -123,6 +142,10 @@ input[type="checkbox"]:checked {
     margin:0px;
     position: relative;
 
+}
+input[type="checkbox"]:checked:after {
+    content: "X";
+    margin-left: 5px;
 }
 
 .btn{
@@ -145,4 +168,175 @@ input[type="checkbox"]:checked {
     color: #EE7247;
     font-size: 1.5rem;
     font-family: Raleway;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 8vh;
+    width: 100vw;
+    background-color: #52BEC8;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+footer a{
+    text-align: center;
+    margin-top: 30px;
+}
+footer a img{
+    margin: 0;
+    padding: 0;
+    width: 70%;
+}
+.profil-link{
+    margin-top: 15px;
+}
+.profil-link img{
+    background-color: #95291E;
+    border-radius: 50%;
+    width: 90%;
+}
+#searchbar{
+    padding: 10px;
+}
+#searchbar-button{
+    background: none;
+    border: none;
+    position: relative;
+}
+#searchbar-button img{
+    width: 40px;
+    position: absolute;
+    top: -30px;
+    right: 40px;
+}
+.card-discovery{
+    margin-top: 50px;
+    height: 30vh;
+    width: 80vw;
+    background-color: white;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+}
+.card-discovery .text{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.card-discovery .text h3{
+    color: white;
+    margin-bottom: 50px;
+    font-size: 3rem;
+    width: 80%;
+    font-style: italic;
+    text-align: left;
+}
+.card-discovery .text a{
+    background-color: #EE7247;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bolder;
+}
+#section-defi{
+margin-top: 100px;
+}
+h3{
+    font-size: 2.8rem;
+    color: #EE7247;
+}
+.time{
+    font-size: 2rem;
+    color: black;
+    font-weight: bolder;
+    font-style: italic;
+}
+.card-defi{
+    background-color: #EE7247;
+    width: 88vw;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+    padding: 15px;
+    border-radius: 50px;
+    color: white;
+}
+.card-defi .text{
+    margin-left: 110px;
+}
+.card-defi img{
+    width: 100px;
+    position: absolute;
+}
+.card-defi span{
+    font-size: 2.5rem;
+}
+.card-defi .soustext{
+    text-align: right;
+}
+.card-defi .points,.card-defi .objectif{
+    font-size: 2rem;
+}
+.card-defi .objectif{
+    background-color: #52BEC8;
+    border-radius: 25px;
+    padding: 5px 10px;
+    color: black;
+    margin-left: 15px;
+}
+#info-general{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 50px 100px;
+    padding-bottom: 0;
+}
+#info-general .avatar{
+    margin: 0;
+    padding: 0;
+}
+#info-general .infos{
+    color: white;
+    text-align: left;
+    margin: 0;
+    margin-left: 25px;
+}
+#info-general h4{
+    font-size: 3rem;
+}
+#info-general p{
+    margin: 25px 0;
+    font-size: 0.9rem;
+}
+#top{
+    text-align: center;
+}
+#top h2{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+#top #soustop{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#top #soustop>div{
+    margin: 0;
+}
+#top #soustop h3{
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+#top #soustop img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
 }
