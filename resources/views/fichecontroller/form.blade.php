@@ -19,18 +19,18 @@
             <input type="radio" id="cinema" name="type" value="cinema" onclick="ToggleType('cinema')">
             <label for="cinema">Cinema/série</label>
         </div>
-        <select class="jeu" name="categorie" id="categorie_jeux">
-            <option value="RPG">RPG</option>
+        <select class="jeu" name="categorie_jeu" id="categorie_jeux">
+            <option value="RPG" selected>RPG</option>
             <option value="FPS">FPS</option>
             <option value="RTS">RTS</option>
         </select>
-        <select class="anime" name="categorie" id="categorie_anime" style="display: none">
-            <option value="isekai">Isekai</option>
+        <select class="anime" name="categorie_anime" id="categorie_anime" style="display: none">
+            <option value="isekai" selected>Isekai</option>
             <option value="science-fiction">Science-Fiction</option>
             <option value="fantasy">Fantasy</option>
         </select>
-        <select class="cinema" name="categorie" id="categorie_cinema" style="display: none">
-            <option value="horreur">Horreur</option>
+        <select class="cinema" name="categorie_cinema" id="categorie_cinema" style="display: none">
+            <option value="horreur" selected>Horreur</option>
             <option value="drame">Drame</option>
             <option value="comedie">Comédie</option>
         </select>

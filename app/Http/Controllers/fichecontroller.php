@@ -47,7 +47,15 @@ class fichecontroller extends Controller
         $fiche->description = $request->input('description');
         $fiche->banniere = "/upload/".$name;
         $fiche->icone = "/upload/".$name2;
-        $fiche->categorie = $request->input('categorie');
+        if($request->input('type') == "jeu"){
+            $fiche->categorie = $request->input('categorie_jeu');
+        }
+        if($request->input('type') == "anime"){
+            $fiche->categorie = $request->input('categorie_anime');
+        }
+        if($request->input('type') == "cinema"){
+            $fiche->categorie = $request->input('categorie_cinema');
+        }
         $fiche->type = $request->input('type');
         $fiche->status = "a confirmer";
         if(!empty($request->input('lienAchat'))){

@@ -57,7 +57,6 @@ function toggleprofil(type){
     document.getElementById("fond").style.marginLeft ="-"+type+"00vw";
 
 }
-
 //
 // $(document).ready(function(){
 //
