@@ -35,21 +35,21 @@ class firstcontroller extends Controller
         $jeux = fiche::join('oeuvrestored', function($join)
         {
             $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
-        })->where('oeuvrestored.id', '<=', '3')->get();
+        })->where('oeuvrestored.id', '<=', '3')->select('*','animejeu.id as fiche_id')->get();
         return view("firstcontroller.propositionjeu",["jeux"=>$jeux]);
     }
     public function propositionanime(){
         $animes = fiche::join('oeuvrestored', function($join)
         {
             $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
-        })->wherebetween('oeuvrestored.id', ['4', '6'])->get();
+        })->wherebetween('oeuvrestored.id', ['4', '6'])->select('*','animejeu.id as fiche_id')->get();
         return view("firstcontroller.propositionanime",["animes"=>$animes]);
     }
     public function propositioncinema(){
         $cinemas = fiche::join('oeuvrestored', function($join)
         {
             $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
-        })->wherebetween('oeuvrestored.id', ['7', '9'])->get();
+        })->wherebetween('oeuvrestored.id', ['7', '9'])->select('*','animejeu.id as fiche_id')->get();
         return view("firstcontroller.propositioncinema",["cinemas"=>$cinemas]);
     }
 }

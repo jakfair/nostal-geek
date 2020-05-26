@@ -5,7 +5,7 @@
         <div class="card-discovery" style="background-image: url('{{$cinema->banniere}}');">
             <div class="text">
                 <h3>{{$cinema->nom}}</h3>
-                <a href="#">Découvrir !</a>
+                <a href="/fiche/{{$cinema->fiche_id}}">Découvrir !</a>
             </div>
         </div>
     @endforeach
