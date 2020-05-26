@@ -26,14 +26,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-        $fichestored = new fichestored();
-        $fichestored->idoeuvre = "1";
-        $fichestored->save();
-    })->EveryMinute();
+            
+        })->EveryMinute();
         $schedule->call(function(){
-            $fichestored = new fichestored();
-            $fichestored->idoeuvre = "2";
-            $fichestored->save();
+
         })->EveryMinute();
     }
 
