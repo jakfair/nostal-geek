@@ -728,3 +728,54 @@ border-radius: 50px;
     font-size: 2rem;
     margin: 2vh;
 }
+
+#titre{
+    color: white;
+    font-size: 2rem;
+    text-transform: capitalize;
+
+}
+
+#bouton input{
+    background-color: #52BEC8;
+    border-radius: 50px;
+    padding: 1.5vh 2vh;
+    font-size: 2.3rem;
+    margin: 2vh;
+    text-transform: capitalize;
+}
+
+#type{
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1vh;
+}
+
+#selecte{
+    width: 75%;
+}
+
+#selecte select{
+    width: 80%;
+    margin-bottom: 2vh;
+    background-color: #52BEC8;
+    border-radius: 50px;
+    padding: 1vh 2vh;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+#image{
+    width: 75%;
+}
+
+#envoyer button{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: #EE723D;
+    border: none;
+    border-radius: 50px;
+    padding: .5vh 2vh;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
