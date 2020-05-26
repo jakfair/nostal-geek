@@ -49,7 +49,7 @@ class Kernel extends ConsoleKernel
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
         $schedule->call(function(){
 
-        })->EveryMinute();
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
     }
 
     /**
