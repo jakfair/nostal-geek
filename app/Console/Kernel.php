@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            //fichestored::truncate();
+            fichestored::truncate();
             $propaljeu = fiche::where('animejeu.type','=', 'jeu')->inRandomOrder()->limit(3)->get();
             $propalanime = fiche::where('animejeu.type','=', 'anime')->inRandomOrder()->limit(3)->get();
             $propalcinema = fiche::where('animejeu.type','=', 'cinema')->inRandomOrder()->limit(3)->get();
@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 $fichestored->idoeuvre = $jeu->id;
                 $fichestored->save();
             }
-            /*foreach ($propalanime as $anime){
+            foreach ($propalanime as $anime){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $anime->id;
                 $fichestored->save();
@@ -45,7 +45,7 @@ class Kernel extends ConsoleKernel
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $cinema->id;
                 $fichestored->save();
-            }*/
+            }
         })->EveryMinute();
         $schedule->call(function(){
 
