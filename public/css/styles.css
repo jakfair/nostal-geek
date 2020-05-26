@@ -225,6 +225,7 @@ footer a img{
     border-radius: 50px;
     position: relative;
     overflow: hidden;
+    background-size: cover;
 }
 .card-discovery .container-visuel{
     position: absolute;
