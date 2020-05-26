@@ -75,6 +75,8 @@ input{
     min-height: 3vh;
     margin-top: 3vh;
     font-size: 1.8rem;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .col-md-6 input[type=email],#age{
     background-color: #52BEC8;
