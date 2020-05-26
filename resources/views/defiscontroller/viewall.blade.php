@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Auth::user()->admin == 1)
    <div class="ls_admin">
        <span class="ls_admin_title">Tous les défis</span>
        @foreach($defis as $defi)
@@ -11,5 +12,8 @@
            </div>
        @endforeach
    </div>
+    @else
+    vous n'êtes pas autorisé à venir ici
+    @endif
 @endsection
 

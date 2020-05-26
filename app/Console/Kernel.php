@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\fiche;
 use App\fichestored;
+use App\successtored;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -48,7 +49,25 @@ class Kernel extends ConsoleKernel
             }
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
         $schedule->call(function(){
-
+            successtored::truncate();
+            $propaljeu = succes::where('succes.type','=', 'jeu')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalanime = succes::where('succes.type','=', 'anime')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalcinema = succes::where('succes.type','=', 'cinema')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            foreach ($propaljeu as $jeu){
+                $successtored = new successtored();
+                $successtored->idsucccess = $jeu->id;
+                $successtored->save();
+            }
+            foreach ($propalanime as $anime){
+                $successtored = new successtored();
+                $successtored->idsucccess = $anime->id;
+                $successtored->save();
+            }
+            foreach ($propalcinema as $cinema){
+                $successtored = new successtored();
+                $successtored->idsucccess = $cinema->id;
+                $successtored->save();
+            }
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
     }
 
