@@ -34,17 +34,17 @@ class Kernel extends ConsoleKernel
             foreach ($propaljeu as $jeu){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $jeu->id;
-                $fichestored->saved();
+                $fichestored->save();
             }
             /*foreach ($propalanime as $anime){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $anime->id;
-                $fichestored->saved();
+                $fichestored->save();
             }
             foreach ($propalcinema as $cinema){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $cinema->id;
-                $fichestored->saved();
+                $fichestored->save();
             }*/
         })->EveryMinute();
         $schedule->call(function(){
