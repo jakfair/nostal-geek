@@ -378,7 +378,7 @@ h3{
 .fichesearch{
     display: grid;
     grid-template-columns: 1fr 3fr;
-    background-color: #52BEC8;
+    background-color: #e84833;
     color: white;
     padding: 10px 30px;
     border-radius: 25px;
