@@ -5,7 +5,12 @@
             <input type="search" id="searchbar" name="search" placeholder="Recherchez une oeuvre">
             <button id="searchbar-button"><img src="/img/search.png"></button>
         </form>
-        <div class="card-discovery" style="background-image: url('/img/jak_3.jpg');">
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propaljeux as $propaljeu)
+                    <div style="background-image: url('{{$propaljeu->banniere}}');"></div>
+                    @endforeach
+            </div>
             <div class="text">
                 <h3>Une nouvelle sélection de jeux vidéo pour vous !</h3>
                 <a href="propositionjeu/">Consulter maintenant</a>

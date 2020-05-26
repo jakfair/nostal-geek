@@ -12,7 +12,11 @@ class firstcontroller extends Controller
 {
     public function index(){
         $general = defi::where('defis.idJeu','=', '0')->inRandomOrder()->limit(3)->get();
-        return view("firstcontroller.home",["general"=>$general]);
+        $propaljeux = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->where('oeuvrestored.id', '<=', '3')->get();
+        return view("firstcontroller.home",["general"=>$general,"propaljeux"=>$propaljeux]);
     } // cette fonction prend 3 articles (id : 1, 2 et 3) pour l'affichage sur la home ?
 
     public function search(Request $request){
