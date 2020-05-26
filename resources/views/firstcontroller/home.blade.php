@@ -34,7 +34,7 @@
                 @endforeach
             </div>
             <div class="text">
-                <h3>Une nouvelle sélection de série et dfe film pour vous !</h3>
+                <h3>Une nouvelle sélection de séries et de films pour vous !</h3>
                 <a href="propositioncinema/">Consulter maintenant</a>
             </div>
         </div>

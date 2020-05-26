@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($animes as $anime)
-        <div class="card-discovery" style="background-image: url('{{$anime->banniere}}');">
+    @foreach($cinemas as $cinema)
+        <div class="card-discovery" style="background-image: url('{{$cinema->banniere}}');">
             <div class="text">
-                <h3>{{$anime->nom}}</h3>
+                <h3>{{$cinema->nom}}</h3>
                 <a href="#">Découvrir !</a>
             </div>
         </div>
