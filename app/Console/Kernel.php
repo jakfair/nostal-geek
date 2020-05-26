@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 $fichestored->idoeuvre = $jeu->id;
                 $fichestored->saved();
             }
-            foreach ($propalanime as $anime){
+            /*foreach ($propalanime as $anime){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $anime->id;
                 $fichestored->saved();
@@ -45,7 +45,7 @@ class Kernel extends ConsoleKernel
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $cinema->id;
                 $fichestored->saved();
-            }
+            }*/
         })->EveryMinute();
         $schedule->call(function(){
 
