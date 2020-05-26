@@ -104,7 +104,8 @@ class profilcontroller extends Controller
      */
     public function destroy($id)
     {
-
+        $res=profil::find($id)->delete();
+        return redirect('/admin/profils');
     }
 }
 

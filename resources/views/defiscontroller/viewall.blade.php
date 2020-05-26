@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-   Liste de tout les défis pour l'administration
-@foreach($general as $generals)
-   {{$generals->intitule}}
-   {{$generals->nbPoint}}
-@endforeach
-   @foreach($defi as $defis)
-       {{$defis->intitule}}
-       {{$defis->nbPoint}}
-
-   @endforeach
+   <div class="ls_admin">
+       <span class="ls_admin_title">Tous les défis</span>
+       @foreach($defis as $defi)
+           <div class="ls_admin_nom_lien">
+               <span class="ls_admin_nom">{{$defi->intitule}}</span>
+               <a href="/defi/edit/{{$defi->id}}">modifier</a>
+               <a href="/defi/destroy/{{$defi->id}}">supp</a><br/>
+           </div>
+       @endforeach
+   </div>
 @endsection
 

@@ -605,3 +605,39 @@ h3{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+/*ADMIN*/
+.ls_admin{
+    display: flex;
+    flex-direction: column;
+}
+.ls_admin_title{
+    font-size: 3rem;
+    color: white;
+    border-bottom: 2px solid white;
+}
+.ls_admin a{
+    color: white;
+    border: 2px solid white;
+    padding: 2vh;
+    margin: 3vh;
+
+}
+
+.ls_admin_nom_lien{
+    margin: 3vh;
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    background-color:#52BEC8;
+border-radius: 50px;
+}
+.ls_admin_nom{
+    font-size: 2rem;
+    margin: auto;
+    color: white;
+}
+.ls_admin_lien{
+    display: flex;
+    flex-direction: column;
+}
