@@ -16,7 +16,12 @@
                 <a href="propositionjeu/">Consulter maintenant</a>
             </div>
         </div>
-        <div class="card-discovery" style="background-image: url('/img/il-etait-une-fois-la-vie-dvd.jpg');">
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propalanimes as $propalanime)
+                    <div style="background-image: url('{{$propalanime->banniere}}');"> </div>
+                @endforeach
+            </div>
             <div class="text">
                 <h3>Une nouvelle sélection d'animés pour vous !</h3>
                 <a href="propositionanime/">Consulter maintenant</a>

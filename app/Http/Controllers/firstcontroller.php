@@ -16,7 +16,11 @@ class firstcontroller extends Controller
         {
             $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
         })->where('oeuvrestored.id', '<=', '3')->get();
-        return view("firstcontroller.home",["general"=>$general,"propaljeux"=>$propaljeux]);
+        $propalanimes = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->wherebetween('oeuvrestored.id', '4', '6')->get();
+        return view("firstcontroller.home",["general"=>$general,"propaljeux"=>$propaljeux,"propalanimes"=>$propalanimes]);
     } // cette fonction prend 3 articles (id : 1, 2 et 3) pour l'affichage sur la home ?
 
     public function search(Request $request){
