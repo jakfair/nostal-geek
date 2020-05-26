@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($jeu as $oeuvres)
-        <div class="card-discovery" style="background-image: url('/img/jak_3.jpg');">
+    @foreach($jeux as $jeu)
+        <div class="card-discovery" style="background-image: url('{{$jeu->banniere}}');">
             <div class="text">
-                <h3>{{$oeuvres->nom}}</h3>
-                <a href="#">Consulter maintenant</a>
+                <h3>{{$jeu->nom}}</h3>
+                <a href="#">Découvrir !</a>
             </div>
         </div>
     @endforeach

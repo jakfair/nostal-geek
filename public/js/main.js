@@ -1,5 +1,4 @@
 function ToggleType(type){
-    alert(type);
     if(type=="anime"){
         var elements = document.getElementsByClassName("anime");
         var nonelements = document.getElementsByClassName("jeu");

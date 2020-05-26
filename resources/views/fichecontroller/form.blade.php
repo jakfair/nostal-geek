@@ -9,9 +9,9 @@
     <form method="post" id="formfiche" action="/form/addfiche" enctype="multipart/form-data">
         {{ csrf_field() }}
         <span class="fiche_form_text">Titre</span></br>
-            <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre"><br/>
+            <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre" required><br/>
         <span class="fiche_form_text">Description</span></br>
-            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre">
+            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required>
         <div class="button_radio_lst">
             <ul id="row">
                 <ul id="liste">
@@ -52,11 +52,11 @@
         </div>
         <div id="fichiers">
             <p>Ajouter une bannière</p>
-            <input type="file" name="banniere" accept='image/png, image/jpeg' style="display: none"/>
-                <label for="avatar"><img src="/img/plus.png"></label>
+            <input id="input_banniere" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_banniere"><img src="/img/plus.png"></label>
             <p>Ajouter un icon</p>
-            <input type="file" name="icone" accept='image/png, image/jpeg' style="display: none"/>
-                <label for="avatar"><img src="/img/plus.png"></label>
+            <input id="input_icon" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_icon"><img src="/img/plus.png"></label>
         </div>
         <div id="liens">
             <input class="jeu" type="text" name="lienAchat" placeholder="Lien pour acheter"/>

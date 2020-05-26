@@ -49,34 +49,19 @@ class fichecontroller extends Controller
         $fiche->icone = "/upload/".$name2;
         if($request->input('type') == "jeu"){
             $fiche->categorie = $request->input('categorie_jeu');
+            $fiche->lienAchat = $request->input('lienAchat');
+            $fiche->lienEmuler = $request->input('lienEmuler');
         }
         if($request->input('type') == "anime"){
             $fiche->categorie = $request->input('categorie_anime');
+            $fiche->lienVoir = $request->input('lienVoiranime');
         }
         if($request->input('type') == "cinema"){
             $fiche->categorie = $request->input('categorie_cinema');
+            $fiche->lienVoir = $request->input('lienVoircinema');
         }
         $fiche->type = $request->input('type');
         $fiche->status = "a confirmer";
-        if(!empty($request->input('lienAchat'))){
-            $fiche->lienAchat = $request->input('lienAchat');
-        }
-        else{
-            $fiche->lienAchat ="";
-        }
-        if(!empty($request->input('lienEmuler'))){
-            $fiche->lienEmuler = $request->input('lienEmuler');
-        }
-        else{
-            $fiche->lienEmuler ="";
-        }
-        if(!empty($request->input('lienVoir'))){
-            $fiche->lienVoir = $request->input('lienVoir');
-        }
-        else{
-            $fiche->lienVoir ="";
-        }
-
         $fiche->save();
         return redirect('/');
     }
