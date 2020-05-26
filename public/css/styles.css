@@ -537,3 +537,18 @@ h3{
     border: none;
     background: none;
 }
+.edit_profil input{
+    border-radius: 5vh;
+    border: none;
+    height: 3vh;
+    width: 75%;
+    margin-top: 3vh;
+    font-size: 1.8rem;
+    background-color: #ffefda;
+
+}
+
+.form_profil{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
