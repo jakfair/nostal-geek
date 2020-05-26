@@ -6,6 +6,7 @@ use App\defi;
 use App\fiche;
 use App\lienami;
 use App\profil;
+use App\success;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -27,6 +28,11 @@ class admincontroller extends Controller
     {
         $defis = defi::all();
         return view("defiscontroller.viewall",["defis"=>$defis]);
+    }
+    public function succes()
+    {
+        $success = success::all();
+        return view("successcontroller.viewall",["success"=>$success]);
     }
 
 }

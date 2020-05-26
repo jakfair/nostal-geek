@@ -15,11 +15,7 @@
         <input type="number" name="points" placeholder="Nombre de points" value="{{$defis->nbPoint}}">
         <img src="{{$defis->icone}}">
         <input type="file" name="icone" accept='image/png, image/jpeg'/>
-        @if($defis->status == "a confirmer")
-            <button type="submit" name="status" value="confirme">Confirmer la fiche</button>
-        @endif
-        @if($defis->status == "confirme")
-            <button type="submit" name="status" value="a confirmer">Deconfirmer la fiche</button>
-        @endif
+        <button type="submit" name="status" value="confirme">Confirmer la fiche</button>
+
     </form>
 @endsection

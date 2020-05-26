@@ -30,18 +30,24 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/form/addfiche','fichecontroller@store');
     Route::get('/fiche/edit/{id}','fichecontroller@edit')->where('id', '[0-9]+');
     Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
-    route::post('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
+    route::get('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
 
     route::get('/defi/{id}','deficontroller@show')->where('id', '[0-9]+');
     route::post('/form/addDefis','deficontroller@store');
     route::get('/defi/edit/{id}','deficontroller@edit')->where('id', '[0-9]+');
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
-    route::post('/defi/destroy/{id}','deficontroller@destroy')->where('id', '[0-9]+');
+    route::get('/defi/destroy/{id}','deficontroller@destroy')->where('id', '[0-9]+');
+
+    route::get('/success/{id}','successcontroller@show')->where('id', '[0-9]+');
+    route::post('/form/addsuccess','successcontroller@store');
+    route::get('/success/edit/{id}','successcontroller@edit')->where('id', '[0-9]+');
+    route::post('/success/update/{id}','successcontroller@update')->where('id', '[0-9]+');
+    route::get('/success/destroy/{id}','successcontroller@destroy')->where('id', '[0-9]+');
 
     route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
     Route::post('/profil/update/{id}','profilcontroller@update')->where('id', '[0-9]+');
     Route::get('/profil/edit/{id}','profilcontroller@edit')->where('id', '[0-9]+');
-    route::post('/profil/destroy/{id}','profilcontroller@destroy')->where('id', '[0-9]+');
+    route::get('/profil/destroy/{id}','profilcontroller@destroy')->where('id', '[0-9]+');
 
     route::get('profil/allami','amicontroller@index');
     route::post('profil/addami','amicontroller@store');
@@ -51,6 +57,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/fiches','admincontroller@fiche');
     Route::get('/admin/defis','admincontroller@defi');
     Route::get('/admin/profils','admincontroller@profil');
+    Route::get('/admin/success','admincontroller@succes');
 
 
 });
