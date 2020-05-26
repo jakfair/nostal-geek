@@ -8,7 +8,7 @@
         <div class="card-discovery">
             <div class="container-visuel">
                 @foreach($propaljeux as $propaljeu)
-                    <div style="background-image: url('{{$propaljeu->banniere}}');"></div>
+                    <div style="background-image: url('{{$propaljeu->banniere}}');"> </div>
                     @endforeach
             </div>
             <div class="text">
