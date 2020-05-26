@@ -46,7 +46,7 @@ class Kernel extends ConsoleKernel
                 $fichestored->idoeuvre = $cinema->id;
                 $fichestored->save();
             }
-        })->weekly()->tuesdays()->at('12:00');
+        })->timezone('Europe/Paris')->weekly()->tuesdays()->at('12:10');
         $schedule->call(function(){
 
         })->EveryMinute();
