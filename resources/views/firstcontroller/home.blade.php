@@ -27,6 +27,17 @@
                 <a href="propositionanime/">Consulter maintenant</a>
             </div>
         </div>
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propalcinemas as $propalcinema)
+                    <div style="background-image: url('{{$propalcinema->banniere}}');"> </div>
+                @endforeach
+            </div>
+            <div class="text">
+                <h3>Une nouvelle sélection de série et dfe film pour vous !</h3>
+                <a href="propositioncinema/">Consulter maintenant</a>
+            </div>
+        </div>
         <div id="section-defi">
 
             <h3>Défis généraux ! <span class="time">Encore 21j pour les compléter</span></h3>
