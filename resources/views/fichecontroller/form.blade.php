@@ -54,8 +54,8 @@
         <input type="file" name="icone" accept='image/png, image/jpeg'/>
         <input class="jeu" type="text" name="lienAchat" placeholder="lien pour acheter"/>
         <input class="jeu" type="text" name="lienEmuler" placeholder="lien pour emuler"/>
-        <input class="anime" type="text" name="lienVoir" placeholder="lien pour regarder" style="display: none"/>
-        <input class="cinema" type="text" name="lienVoir" placeholder="lien pour regarder" style="display: none"/>
+        <input class="anime" type="text" name="lienVoiranime" placeholder="lien pour regarder" style="display: none"/>
+        <input class="cinema" type="text" name="lienVoircinema" placeholder="lien pour regarder" style="display: none"/>
 
         <button type="submit">Envoyer</button>
     </form>
