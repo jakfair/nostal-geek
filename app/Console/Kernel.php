@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            fichestored::truncate();
+            //fichestored::truncate();
             $propaljeu = fiche::where('animejeu.type','=', 'jeu')->inRandomOrder()->limit(3)->get();
             $propalanime = fiche::where('animejeu.type','=', 'anime')->inRandomOrder()->limit(3)->get();
             $propalcinema = fiche::where('animejeu.type','=', 'cinema')->inRandomOrder()->limit(3)->get();
