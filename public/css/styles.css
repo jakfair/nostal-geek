@@ -25,12 +25,12 @@ a{
 }
 .container{
     margin-top: 0;
-
     margin-bottom: 9vh;
     text-align: center;
     width: 100vw;
     min-height: 85vh;
     overflow: hidden;
+    overflow-y: visible;
 }
 
 .avatar{
@@ -226,6 +226,20 @@ footer a img{
     position: relative;
     overflow: hidden;
     background-size: cover;
+}
+.card-discovery .container-visuel{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.card-discovery .container-visuel div{
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
 }
 .card-discovery .text{
     position: absolute;
@@ -560,6 +574,7 @@ h3{
     flex-direction: column;
     margin: 2vw 3vw;
 }
+
 .fiche_form_title span:nth-child(1){
     background-color: #52BEC8;
     border-radius: 50px;
@@ -571,23 +586,65 @@ h3{
     font-size: 2rem;
     color: white;
 }
+
+.button_radio_lst{
+    width: 100%;
+}
+
 #row{
+    width: 100%;
+    padding: 0;
+}
+
+#row ul{
+    padding: 0;
+}
+
+.fiche_form div input[type=radio]{
+    width: 50%;
+}
+
+#liste{
+    margin: 0;
+    margin: auto;
+    width: 75%;
+}
+
+#liste div{
+    color: #95291E;
+    width: 60%;
     display: flex;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
 }
-.fiche_form input[type=radio]{
-    width: 80;
+
+#liste input{
+    width: 25%;
+    margin: 0;
 }
+
+#categ{
+    margin: 0;
+    width: 100%;
+}
+
+#categ select{
+    margin-top: 2vh;
+    width: 75%;
+}
+
 .fiche_form input[type=text]{
     background-color: transparent;
     border-radius: 0;
     border-bottom: 2px solid white;
-
+    margin-bottom: 5vh;
 }
 
 .fiche_form_text{
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
 }
+
 .fiche_form select{
     font-size: 2rem;
     background-color: white;
@@ -640,4 +697,34 @@ border-radius: 50px;
 .ls_admin_lien{
     display: flex;
     flex-direction: column;
+}
+
+#fichiers{
+    margin-top: 3vh;
+}
+
+#fichiers p{
+    color: black;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#fichiers img{
+    width: 5%;
+}
+
+#liens input{
+    background-color: #52BEC8;
+    border-radius: 50px;
+    padding: 1.5vh 2vh;
+    font-size: 2.3rem;
+    margin: 2vh;
+}
+
+#buttonsend button{
+    background-color: #EE723D;
+    border-radius: 50px;
+    padding: .7vh 1vh;
+    font-size: 2rem;
+    margin: 2vh;
 }

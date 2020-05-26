@@ -12,19 +12,44 @@ class firstcontroller extends Controller
 {
     public function index(){
         $general = defi::where('defis.idJeu','=', '0')->inRandomOrder()->limit(3)->get();
-        return view("firstcontroller.home",["general"=>$general]);
-    } // cette fonction prend 3 articles (id : 1, 2 et 3) pour l'affichage sur la home ?
+        $propaljeux = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->where('oeuvrestored.id', '<=', '3')->get();
+        $propalanimes = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->wherebetween('oeuvrestored.id', ['4', '6'])->get();
+        $propalcinemas = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->wherebetween('oeuvrestored.id', ['7', '9'])->get();
+        return view("firstcontroller.home",["general"=>$general,"propaljeux"=>$propaljeux,"propalanimes"=>$propalanimes,"propalcinemas"=>$propalcinemas]);
+    }
 
     public function search(Request $request){
         $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->get();
         return view("firstcontroller.search",["fiches"=>$fiches]);
     }
     public function propositionjeu(){
-        $jeu = fiche::where('animejeu.type','=', 'jeu')->inRandomOrder()->limit(4)->get();
-        return view("firstcontroller.propositionjeu",["jeu"=>$jeu]);
+        $jeux = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->where('oeuvrestored.id', '<=', '3')->get();
+        return view("firstcontroller.propositionjeu",["jeux"=>$jeux]);
     }
     public function propositionanime(){
-        $anime = fiche::where('animejeu.type','=', 'anime')->inRandomOrder()->limit(4)->get();
-        return view("firstcontroller.propositionanime",["anime"=>$anime]);
+        $animes = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->wherebetween('oeuvrestored.id', ['4', '6'])->get();
+        return view("firstcontroller.propositionanime",["animes"=>$animes]);
+    }
+    public function propositioncinema(){
+        $cinemas = fiche::join('oeuvrestored', function($join)
+        {
+            $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
+        })->wherebetween('oeuvrestored.id', ['7', '9'])->get();
+        return view("firstcontroller.propositioncinema",["cinemas"=>$cinemas]);
     }
 }

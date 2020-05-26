@@ -3,18 +3,18 @@
 @section('content')
     <div class="fiche_form">
         <div class="fiche_form_title">
-        <span>formulaire</span><br/>
-     <span>création de fiche de jeu vidéo/animé</span>
+            <span>Formulaire</span><br/>
+            <span>Création de fiche de jeu vidéo/animé</span>
         </div>
     <form method="post" id="formfiche" action="/form/addfiche" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <span class="fiche_form_text">Titre</span>
-        <input type="text" name="nom" placeholder="entrez le nom de l'oeuvre"><br/>
-        <span class="fiche_form_text">Description</span>
-        <input type="text" name="description" placeholder="entrez la description de l'oeuvre">
+        <span class="fiche_form_text">Titre</span></br>
+            <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre" required><br/>
+        <span class="fiche_form_text">Description</span></br>
+            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required>
         <div class="button_radio_lst">
             <ul id="row">
-                <ul>
+                <ul id="liste">
                     <span class="fiche_form_text">Type D'oeuvre</span><br/>
                     <div>
                         <input type="radio" id="jeu" name="type" value="jeu" checked onclick="ToggleType('jeu')">
@@ -30,7 +30,7 @@
                         <label for="cinema">Cinema/série</label>
                     </div>
                 </ul>
-                <ul>
+                <ul id="categ">
                     <select class="jeu" name="categorie_jeu" id="categorie_jeux">
                         <option value="RPG" selected>RPG</option>
                         <option value="FPS">FPS</option>
@@ -50,14 +50,23 @@
             </ul>
 
         </div>
-        <input type="file" name="banniere" accept='image/png, image/jpeg'/>
-        <input type="file" name="icone" accept='image/png, image/jpeg'/>
-        <input class="jeu" type="text" name="lienAchat" placeholder="lien pour acheter"/>
-        <input class="jeu" type="text" name="lienEmuler" placeholder="lien pour emuler"/>
-        <input class="anime" type="text" name="lienVoir" placeholder="lien pour regarder" style="display: none"/>
-        <input class="cinema" type="text" name="lienVoir" placeholder="lien pour regarder" style="display: none"/>
-
-        <button type="submit">Envoyer</button>
+        <div id="fichiers">
+            <p>Ajouter une bannière</p>
+            <input id="input_banniere" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_banniere"><img src="/img/plus.png"></label>
+            <p>Ajouter un icon</p>
+            <input id="input_icon" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_icon"><img src="/img/plus.png"></label>
+        </div>
+        <div id="liens">
+            <input class="jeu" type="text" name="lienAchat" placeholder="Lien pour acheter"/>
+            <input class="jeu" type="text" name="lienEmuler" placeholder="Lien pour émuler"/>
+            <input class="anime" type="text" name="lienVoir" placeholder="Lien pour regarder" style="display: none"/>
+            <input class="cinema" type="text" name="lienVoir" placeholder="Lien pour regarder" style="display: none"/>
+        </div>
+        <div id="buttonsend">
+            <button type="submit">Envoyer</button>
+        </div>
     </form>
     </div>
 @endsection

@@ -12,7 +12,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('') }}</div>
-                <div class="avatar"><img src="/img/avatar.png"/></div>
+                <div class="avatar"><img src="/img/basic-avatar.png"/></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

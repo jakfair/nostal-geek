@@ -28,28 +28,28 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function(){
             fichestored::truncate();
-            $propaljeu = fiche::where('animejeu.type','=', 'jeu')->inRandomOrder()->limit(3)->get();
-            $propalanime = fiche::where('animejeu.type','=', 'anime')->inRandomOrder()->limit(3)->get();
-            $propalcinema = fiche::where('animejeu.type','=', 'cinema')->inRandomOrder()->limit(3)->get();
+            $propaljeu = fiche::where('animejeu.type','=', 'jeu')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalanime = fiche::where('animejeu.type','=', 'anime')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalcinema = fiche::where('animejeu.type','=', 'cinema')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             foreach ($propaljeu as $jeu){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $jeu->id;
-                $fichestored->saved();
+                $fichestored->save();
             }
             foreach ($propalanime as $anime){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $anime->id;
-                $fichestored->saved();
+                $fichestored->save();
             }
             foreach ($propalcinema as $cinema){
                 $fichestored = new fichestored();
                 $fichestored->idoeuvre = $cinema->id;
-                $fichestored->saved();
+                $fichestored->save();
             }
-        })->EveryMinute();
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
         $schedule->call(function(){
 
-        })->EveryMinute();
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
     }
 
     /**

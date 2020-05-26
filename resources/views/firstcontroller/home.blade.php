@@ -5,16 +5,37 @@
             <input type="search" id="searchbar" name="search" placeholder="Recherchez une oeuvre">
             <button id="searchbar-button"><img src="/img/search.png"></button>
         </form>
-        <div class="card-discovery" style="background-image: url('/img/jak_3.jpg');">
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propaljeux as $propaljeu)
+                    <div style="background-image: url('{{$propaljeu->banniere}}');"> </div>
+                    @endforeach
+            </div>
             <div class="text">
                 <h3>Une nouvelle sélection de jeux vidéo pour vous !</h3>
                 <a href="propositionjeu/">Consulter maintenant</a>
             </div>
         </div>
-        <div class="card-discovery" style="background-image: url('/img/il-etait-une-fois-la-vie-dvd.jpg');">
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propalanimes as $propalanime)
+                    <div style="background-image: url('{{$propalanime->banniere}}');"> </div>
+                @endforeach
+            </div>
             <div class="text">
                 <h3>Une nouvelle sélection d'animés pour vous !</h3>
                 <a href="propositionanime/">Consulter maintenant</a>
+            </div>
+        </div>
+        <div class="card-discovery">
+            <div class="container-visuel">
+                @foreach($propalcinemas as $propalcinema)
+                    <div style="background-image: url('{{$propalcinema->banniere}}');"> </div>
+                @endforeach
+            </div>
+            <div class="text">
+                <h3>Une nouvelle sélection de séries et de films pour vous !</h3>
+                <a href="propositioncinema/">Consulter maintenant</a>
             </div>
         </div>
         <div id="section-defi">

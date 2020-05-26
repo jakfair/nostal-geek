@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/search','firstcontroller@search');
     route::get('/propositionjeu','firstcontroller@propositionjeu');
     route::get('/propositionanime','firstcontroller@propositionanime');
+    route::get('/propositioncinema','firstcontroller@propositioncinema');
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
     Route::get('/fiche/{id}', 'fichecontroller@show')->where('id', '[0-9]+');
