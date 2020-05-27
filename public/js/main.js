@@ -47,9 +47,9 @@ function togglesearch(type){
     document.getElementById("container-categorie").style.marginLeft ="-"+type+"00vw";
     var buttonsearch = document.getElementsByClassName("buttonsearch");
     for(i=0;i<buttonsearch.length;i++){
-        buttonsearch[i].style.borderBottom = "none";
+        buttonsearch[i].style.backgroundColor = "transparent";
     }
-    document.getElementById("buttonsearch"+type).style.borderBottom = "8px solid white";
+    document.getElementById("buttonsearch"+type).style.backgroundColor  = "#52BEC8";
 }
 
 function toggleprofil(type){
