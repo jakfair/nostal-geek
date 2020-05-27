@@ -37,7 +37,6 @@
                         <option value="RPG" selected>RPG</option>
                         <option value="FPS">FPS</option>
                         <option value="RTS">RTS</option>
-                        <option value="RPG" selected>RPG</option>
                         <option value="course">Course</option>
                         <option value="plateforme">Plateforme</option>
                         <option value="horreur">Horreur</option>

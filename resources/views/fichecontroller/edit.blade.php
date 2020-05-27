@@ -15,16 +15,37 @@
                     @if($fiche->type == "jeu")
                     <select name="categorie" id="categorie_jeux">
                         <option value="{{$fiche->categorie}}">{{$fiche->categorie}}</option>
-                        <option value="RPG">RPG</option>
+                        <option value="RPG" selected>RPG</option>
                         <option value="FPS">FPS</option>
                         <option value="RTS">RTS</option>
+                        <option value="course">Course</option>
+                        <option value="plateforme">Plateforme</option>
+                        <option value="horreur">Horreur</option>
+                        <option value="action">Action</option>
+                        <option value="gestion">Gestion</option>
+                        <option value="simulateurdevie">Simulateur de vie</option>
                     </select>
-                    @else
+                    @elseif($fiche->type == "anime")
                         <select name="categorie" id="categorie_anime">
-                            <option value="">Choississez la catégorie</option>
-                            <option value="isekai">Isekai</option>
-                            <option value="SCience-Fiction">Science-Fiction</option>
+                            <option value="isekai" selected>Isekai</option>
+                            <option value="science-fiction">Science-Fiction</option>
                             <option value="fantasy">Fantasy</option>
+                            <option value="comedie" selected>Comédie</option>
+                            <option value="action">Action</option>
+                            <option value="drame">Drame</option>
+                            <option value="jeunesse">Jeunesse</option>
+                            <option value="musical">Comédie musicale</option>
+                            <option value="aventure">Aventure</option>
+                        </select>
+                        @else
+                        <select name="categorie" id="categorie_cinema">
+                            <option value="comedie" selected>Comédie</option>
+                            <option value="drame">Drame</option>
+                            <option value="horreur">Horreur</option>
+                            <option value="fantasy">Fantastique</option>
+                            <option value="sitcom">Sitcom</option>
+                            <option value="aventure">Aventure</option>
+                            <option value="science-fiction">Science-Fiction</option>
                         </select>
                     @endif
                     <img src="{{$fiche ->banniere}}">
