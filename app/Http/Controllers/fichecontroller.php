@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\defi;
+use App\lienoeuvre;
 use Illuminate\Http\Request;
 use App\fiche;
 
@@ -78,7 +79,15 @@ class fichecontroller extends Controller
         $defis = defi::where('defis.idJeu','=', $fiche->id)->inRandomOrder()->limit(5)->get();
         return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
     }
+    public function addfavoris(Request $request)
+    {
+        $lienoeuvre= new lienoeuvre();
+        $lienoeuvre->iduser= $request->input('userid');
+        $lienoeuvre->idfiche= $request->input('ficheid');
+        $lienoeuvre->save();
+        return redirect(('/fiche/'.$request->input('ficheid')));
 
+    }
     /**
      * Show the form for editing the specified resource.
      *

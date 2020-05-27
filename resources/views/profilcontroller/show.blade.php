@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@foreach($lienoeuvres as $lienoeuvre)
-    {{$lienoeuvre->nom}}
-@endforeach
+
     @if($user->id == $profil->id)
 
     @else
@@ -49,42 +47,13 @@
         </div>
         <div id="fond" style="margin-left: 0">
             <div id="list_favoris">
+                @foreach($lienoeuvres as $lienoeuvre)
                 <div class="categorie">
-                    <img src="/img/winx.png"/>
-                    <p>Les Winx</p>
+
+                        <img src="{{$lienoeuvre->icone}}"/>
+                        <p>{{$lienoeuvre->nom}}</p>
                 </div>
-                <div class="categorie">
-                    <img src="/img/buffy.png"/>
-                    <p>Buffy contre les vampires</p>
-                </div>
-                <div class="categorie">
-                <img src="/img/ff10.png"/>
-                    <p>Final Fantasy 10</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/winx.png"/>
-                    <p>Les Winx</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/buffy.png"/>
-                    <p>Buffy contre les vampires</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/ff10.png"/>
-                    <p>Final Fantasy 10</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/winx.png"/>
-                    <p>Les Winx</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/buffy.png"/>
-                    <p>Buffy contre les vampires</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/ff10.png"/>
-                    <p>Final Fantasy 10</p>
-                </div>
+                @endforeach
             </div>
 
             <div id="list_favoris">
