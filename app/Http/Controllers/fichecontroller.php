@@ -117,7 +117,7 @@ class fichecontroller extends Controller
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
         })->where('defis.categorie','=','mensuel')->get();
         if(!count($defis)){
-            $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','mensuel')->inRandomOrder()->limit(2)->get();
+            $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','mensuel')->inRandomOrder()->limit(1)->get();
             foreach ($newdefis as $newdefi){
                 $liendefi = new liendefi();
                 $liendefi->iduser = auth::id();

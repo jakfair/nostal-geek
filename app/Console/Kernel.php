@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function(){
+        $schedule->call(function(){ //générations trois propositions d'oeuvres pour chaque catégorie//
             fichestored::truncate();
             $propaljeu = fiche::where('animejeu.type','=', 'jeu')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalanime = fiche::where('animejeu.type','=', 'anime')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
 
-        $schedule->call(function(){
+        $schedule->call(function(){ //générations trois succès pour chaque catégorie//
             successtored::truncate();
             $propaljeu = succes::where('succes.type','=', 'jeu')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalanime = succes::where('succes.type','=', 'anime')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
@@ -74,7 +74,7 @@ class Kernel extends ConsoleKernel
             }
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
-        $schedule->call(function(){
+        $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
             {
                 $join->on('liendefi.iddefi', '=', 'defis.id');
@@ -85,7 +85,7 @@ class Kernel extends ConsoleKernel
 
         })->timezone('Europe/Paris')->daily()->at('12:00');
 
-        $schedule->call(function(){
+        $schedule->call(function(){ //reset défi hebdomadaires tout les lundi a midi//
             $defis = defi::join('liendefi', function($join)
             {
                 $join->on('liendefi.iddefi', '=', 'defis.id');
@@ -97,7 +97,7 @@ class Kernel extends ConsoleKernel
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
 
-        $schedule->call(function(){
+        $schedule->call(function(){ //reset défi mensuel tout les mois le premier jour a midi//
             $defis = defi::join('liendefi', function($join)
             {
                 $join->on('liendefi.iddefi', '=', 'defis.id');
@@ -106,7 +106,7 @@ class Kernel extends ConsoleKernel
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
 
-        })->timezone('Europe/Paris')->monthlyOn(1, '15200');
+        })->timezone('Europe/Paris')->monthlyOn(1, '12:00');
     }
 
     /**
