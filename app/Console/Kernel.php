@@ -80,10 +80,10 @@ class Kernel extends ConsoleKernel
                 $join->on('liendefi.iddefi', '=', 'defis.id')->select('*','liendefi.id as liendefi_id');
             })->where('defis.categorie','=','quotidien')->get();
             foreach ($defis as $defi){
-                $res=liendefi::find($defi->liendefi_id)->delete();
+                $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('4:40');
+        })->timezone('Europe/Paris')->daily()->at('4:45');
     }
 
     /**
