@@ -3,6 +3,17 @@
 @section('content')
     <div id="infofiche" style="background-image: url('{{$fiche->banniere}}')">
         <img src="{{$fiche->icone}}">
+        <form id="formfavori" method="post" action="/fiche/addfavoris">
+            {{ csrf_field() }}
+
+            <input type="text" value="{{Auth::user()->id}}" hidden name="userid">
+            <input type="text" value="{{$fiche->id}}" hidden name="ficheid">
+            @if($favori == "non")
+                <button type="submit"><img src="/img/star_alt.png"></button>
+            @else
+                <a href="/fiche/destroyfavori/{{$favori->id}}"><img src="/img/star.png"></a>
+            @endif
+        </form>
         <h4>{{$fiche->nom}}</h4>
         <span>{{$fiche->categorie}}</span>
         <div>
@@ -39,12 +50,4 @@
             @endforeach
         @include('defiscontroller.form')
     @endif
-
-     <form method="post" action="/fiche/addfavoris">
-         {{ csrf_field() }}
-
-         <input type="text" value="{{Auth::user()->id}}" hidden name="userid">
-         <input type="text" value="{{$fiche->id}}" hidden name="ficheid">
-         <button type="submit"><img src="/img/star.png"><button>
-     </form>
 @endsection

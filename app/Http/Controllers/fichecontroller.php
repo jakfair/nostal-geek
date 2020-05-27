@@ -78,8 +78,10 @@ class fichecontroller extends Controller
     public function show($id)
     {
         $fiche = fiche::findOrFail($id);
-
-
+        $favori = lienoeuvre::where('iduser','=',auth::id())->where('idfiche','=',$fiche->id)->first();
+        if(empty($favori)){
+            $favori = "non";
+        }
 
         $defis = defi::join('liendefi', function($join)
         {
@@ -95,8 +97,6 @@ class fichecontroller extends Controller
                 $liendefi->save();
             }
         }
-
-
 
         $defis = defi::join('liendefi', function($join)
     {
@@ -127,11 +127,12 @@ class fichecontroller extends Controller
                 $liendefi->save();
             }
         }
+
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
         })->where('defis.idJeu','=',$fiche->id)->select('*','liendefi.status as liendefi_status','liendefi.id as liendefi_id')->get();
-        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
+        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis,"favori"=>$favori]);
     }
     public function addfavoris(Request $request)
     {
@@ -141,6 +142,12 @@ class fichecontroller extends Controller
         $lienoeuvre->save();
         return redirect(('/fiche/'.$request->input('ficheid')));
 
+    }
+    public function destroyfavori($id){
+        $res = lienoeuvre::find($id);
+        $pageid = $res->idfiche;
+        $res->delete();
+        return redirect()->to('/fiche/'.$pageid);
     }
     /**
      * Show the form for editing the specified resource.
