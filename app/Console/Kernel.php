@@ -77,13 +77,13 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             $defis = defi::join('liendefi', function($join)
             {
-                $join->on('liendefi.iddefi', '=', 'defis.id')->select('*','liendefi.id as liendefi_id');
-            })->where('defis.categorie','=','quotidien')->get();
+                $join->on('liendefi.iddefi', '=', 'defis.id');
+            })->where('defis.categorie','=','quotidien')->select('*','liendefi.id as liendefi_id')->get();
             foreach ($defis as $defi){
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('4:45');
+        })->timezone('Europe/Paris')->daily()->at('4:50');
     }
 
     /**
