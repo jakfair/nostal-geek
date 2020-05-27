@@ -5,6 +5,7 @@ namespace App\Console;
 use App\defi;
 use App\fiche;
 use App\fichestored;
+use App\liendefi;
 use App\successtored;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -76,12 +77,12 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             $defis = defi::join('liendefi', function($join)
             {
-                $join->on('liendefi.iddefi', '=', 'defis.id');
+                $join->on('liendefi.iddefi', '=', 'defis.id')->select('*','liendefi.id as liendefi_id');
             })->where('defis.categorie','=','quotidien')->get();
             foreach ($defis as $defi){
-                $res=defi::find($defi->id)->delete();
+                $res=liendefi::find($defi->liendefi_id)->delete();
             }
-            
+
         })->timezone('Europe/Paris')->daily()->at('04:35');
     }
 
