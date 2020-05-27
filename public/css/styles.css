@@ -655,8 +655,10 @@ h3{
 .fiche_form{
     font-size: 2rem;
     color: white;
+    background-color: #95291E;
+    width: 80vw;
+    border-radius: 25px;
 }
-
 .button_radio_lst{
     width: 100%;
 }
@@ -681,7 +683,6 @@ h3{
 }
 
 #liste div{
-    color: #95291E;
     width: 60%;
     display: flex;
     margin-top: 3vh;

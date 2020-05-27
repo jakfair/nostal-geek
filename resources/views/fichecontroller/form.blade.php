@@ -3,8 +3,7 @@
 @section('content')
     <div class="fiche_form">
         <div class="fiche_form_title">
-            <span>Formulaire</span><br/>
-            <span>Création de fiche de jeu vidéo/animé</span>
+            <span>Création de fiche de jeu vidéo/animé/film/série</span><br/>
         </div>
     <form method="post" id="formfiche" action="/form/addfiche" enctype="multipart/form-data">
         {{ csrf_field() }}
