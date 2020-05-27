@@ -544,6 +544,10 @@ h3{
      left: 15px;
     font-size: 2.5rem;
  }
+#infofiche #annee{
+    bottom: 15px;
+    left: 45%;
+}
 #infofiche>div{
     bottom: 15px;
     right: 15px;

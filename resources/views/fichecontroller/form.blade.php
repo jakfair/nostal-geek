@@ -11,7 +11,9 @@
         <span class="fiche_form_text">Titre</span></br>
             <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre" required><br/>
         <span class="fiche_form_text">Description</span></br>
-            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required>
+            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required><br>
+        <span class="fiche_form_text">Année de sortie</span></br>
+        <input type="text" name="annee" placeholder="Entrez l'année de sortie de l'oeuvre" required>
         <div class="button_radio_lst">
             <ul id="row">
                 <ul id="liste">

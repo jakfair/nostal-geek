@@ -48,6 +48,7 @@ class fichecontroller extends Controller
         $fiche = new fiche();
         $fiche->nom = $request->input('nom');
         $fiche->description = $request->input('description');
+        $fiche->annee = $request->input('annee');
         $fiche->banniere = "/upload/".$name;
         $fiche->icone = "/upload/".$name2;
         if($request->input('type') == "jeu"){
@@ -176,6 +177,7 @@ class fichecontroller extends Controller
         $fiche->description = $request->input('description');
         $fiche->categorie = $request->input('categorie');
         $fiche->type = $request->input('type');
+        $fiche->annee = $request->input('annee');
         $fiche->status = $request->input('status');
         if(!empty($request->input('lienAchat'))){
             $fiche->lienAchat = $request->input('lienAchat');

@@ -15,7 +15,7 @@
             @endif
         </form>
         <h4>{{$fiche->nom}}</h4>
-        <span>{{$fiche->categorie}}</span>
+        <span>{{$fiche->categorie}}</span><span id="annee">{{$fiche->annee}}</span>
         <div>
         @if($fiche -> type == "jeu")
             <a href="{!!$fiche->lienAchat!!}" target="_blank" ><img src="/img/buy.png"></a>
