@@ -44,7 +44,7 @@
             @foreach($generals as $general)
             <div class="card-defi">
                 <div class="text">
-                        <span class="intitule">{{$general->intitule}}</span><br>
+                        <div class="intitule">{{$general->intitule}}</div>
                         <div class="soustext">
                             <span class="points">{{$general->nbPoint}} points</span>
                             @if($general->liensucces_status == "a faire")
@@ -52,10 +52,10 @@
                                     {{ csrf_field() }}
                                     <input hidden name="idliensucces" value="{{$general->liensucces_id}}">
                                     <input hidden name="idfiche" value="{{$general->id}}">
-                                    <button type="submit">Appuyer ici pour confirmer</button>
+                                    <button type="submit"><img src="/img/cercle.png"></button>
                                 </form>
                             @else
-                                <span class="objectif">{{$general->liensucces_status}}</span>
+                                <span class="objectif"><img src="/img/check.png"></span>
                             @endif
                     </div>
                 </div>
