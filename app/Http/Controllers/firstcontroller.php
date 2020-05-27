@@ -28,7 +28,7 @@ class firstcontroller extends Controller
     }
 
     public function search(Request $request){
-        $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->get();
+        $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->orderBy('nom', 'DESC')->get();
         return view("firstcontroller.search",["fiches"=>$fiches]);
     }
     public function propositionjeu(){
