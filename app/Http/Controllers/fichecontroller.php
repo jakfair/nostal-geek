@@ -126,11 +126,10 @@ class fichecontroller extends Controller
                 $liendefi->save();
             }
         }
-
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
-        })->where('defis.idJeu','=',$fiche->id)->get();
+        })->where('defis.idJeu','=',$fiche->id)->select('*','liendefi.status as liendefi_status','liendefi.id as liendefi_id')->get();
         return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
     }
 

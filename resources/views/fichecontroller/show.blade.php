@@ -23,7 +23,16 @@
                     <span class="intitule">{{$defi->intitule}}</span><br>
                     <div class="soustext">
                         <span class="points">{{$defi->nbPoint}} points</span>
-                        <span class="objectif">{{$defi->status}}</span>
+                        @if($defi->liendefi_status == "a faire")
+                            <form method="post" action="/defi/confirm">
+                                {{ csrf_field() }}
+                                <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
+                                <input hidden name="idfiche" value="{{$fiche->id}}">
+                                <button type="submit">Appuyer ici pour confirmer</button>
+                            </form>
+                        @else
+                            <span class="objectif">{{$defi->liendefi_status}}</span>
+                        @endif
                     </div>
                 </div>
             </div>

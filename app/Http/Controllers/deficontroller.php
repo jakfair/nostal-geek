@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\liendefi;
 use Illuminate\Http\Request;
 use App\defi;
 use App\fiche;
+use Illuminate\Support\Facades\Auth;
 
 class deficontroller extends Controller
 {
@@ -113,6 +115,19 @@ class deficontroller extends Controller
     {
         $res=defi::find($id)->delete();
         return redirect('/admin/defis');
+    }
+    public function confirm(Request $request){
+        $user = Auth::user();
+        $defi = defi::join('liendefi', function($join)
+        {
+            $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+        })->where('liendefi.id','=',$request->input('idliendefi'))->first();
+        $user->nbpoints = $user->nbpoints + $defi->nbPoint;
+        $user->save();
+        $res=liendefi::where('id','=',$request->input('idliendefi'))->first();
+        $res->status = "Terminé";
+        $res->save();
+        return redirect()->to('/fiche/'.$request->input('idfiche'));
     }
 }
 
