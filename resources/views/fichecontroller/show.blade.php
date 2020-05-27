@@ -39,4 +39,12 @@
             @endforeach
         @include('defiscontroller.form')
     @endif
+
+     <form method="post" action="/fiche/addfavoris">
+         {{ csrf_field() }}
+
+         <input type="text" value="{{Auth::user()->id}}" hidden name="userid">
+         <input type="text" value="{{$fiche->id}}" hidden name="ficheid">
+         <button type="submit"><img src="/img/star.png"><button>
+     </form>
 @endsection
