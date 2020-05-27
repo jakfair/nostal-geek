@@ -41,15 +41,22 @@
         <div id="section-defi">
 
             <h3>Défis généraux ! <span class="time">Encore 21j pour les compléter</span></h3>
-            @foreach($general as $generals)
+            @foreach($generals as $general)
             <div class="card-defi">
-                <img src="/img/elder-srolls-skyrim-trophees-succes-016.png">
                 <div class="text">
-
-                        <span class="intitule">{{$generals->intitule}}</span><br>
+                        <span class="intitule">{{$general->intitule}}</span><br>
                         <div class="soustext">
-                            <span class="points">{{$generals->nbPoint}} points</span>
-                            <span class="objectif">{{$generals->status}}</span>
+                            <span class="points">{{$general->nbPoint}} points</span>
+                            @if($general->liensucces_status == "a faire")
+                                <form method="post" action="/success/confirm">
+                                    {{ csrf_field() }}
+                                    <input hidden name="idliensucces" value="{{$general->liensucces_id}}">
+                                    <input hidden name="idfiche" value="{{$general->id}}">
+                                    <button type="submit">Appuyer ici pour confirmer</button>
+                                </form>
+                            @else
+                                <span class="objectif">{{$general->liensucces_status}}</span>
+                            @endif
                     </div>
                 </div>
             </div>

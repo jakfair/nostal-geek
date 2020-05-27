@@ -27,11 +27,11 @@
     </div>
     @if($fiche -> type == "jeu")
         @foreach($defis as $defi)
-            <div class="card-defi">
+            <div class="card-defi {{$defi->categorie}}">
                 <img src="{{$defi->icone}}">
                 <div class="text">
 
-                    <span class="intitule">{{$defi->intitule}}</span><br>
+                    <div class="intitule">{{$defi->intitule}}</div>
                     <div class="soustext">
                         <span class="points">{{$defi->nbPoint}} points</span>
                         @if($defi->liendefi_status == "a faire")
@@ -39,10 +39,10 @@
                                 {{ csrf_field() }}
                                 <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
                                 <input hidden name="idfiche" value="{{$fiche->id}}">
-                                <button type="submit">Appuyer ici pour confirmer</button>
+                                <button type="submit"><img src="/img/cercle.png"></button>
                             </form>
                         @else
-                            <span class="objectif">{{$defi->liendefi_status}}</span>
+                            <span class="objectif"><img src="/img/check.png"></span>
                         @endif
                     </div>
                 </div>
