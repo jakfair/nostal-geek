@@ -2,6 +2,7 @@
 
 @section('content')
     <div id="infofiche" style="background-image: url('{{$fiche->banniere}}')">
+        <div id="filter">  </div>
         <img src="{{$fiche->icone}}">
         <form id="formfavori" method="post" action="/fiche/addfavoris">
             {{ csrf_field() }}
@@ -25,6 +26,7 @@
         @endif
         </div>
     </div>
+    <p id="description">{{$fiche->description}}</p>
     @if($fiche -> type == "jeu")
         @foreach($defis as $defi)
             <div class="card-defi {{$defi->categorie}}">
