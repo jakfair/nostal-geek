@@ -106,7 +106,7 @@ class Kernel extends ConsoleKernel
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('5:02');
+        })->timezone('Europe/Paris')->daily()->at('5:04');
     }
 
     /**
