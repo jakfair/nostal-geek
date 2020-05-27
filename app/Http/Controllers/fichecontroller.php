@@ -130,7 +130,7 @@ class fichecontroller extends Controller
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
-        })->get();
+        })->where('defis.idJeu','=',$fiche->id)->get();
         return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
     }
 
