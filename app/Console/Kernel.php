@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\defi;
 use App\fiche;
 use App\fichestored;
 use App\successtored;
@@ -48,6 +49,8 @@ class Kernel extends ConsoleKernel
                 $fichestored->save();
             }
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
+
+
         $schedule->call(function(){
             successtored::truncate();
             $propaljeu = succes::where('succes.type','=', 'jeu')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
@@ -69,6 +72,17 @@ class Kernel extends ConsoleKernel
                 $successtored->save();
             }
         })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
+
+        $schedule->call(function(){
+            $defis = defi::join('liendefi', function($join)
+            {
+                $join->on('liendefi.iddefi', '=', 'defis.id');
+            })->where('defis.categorie','=','quotidien')->get();
+            foreach ($defis as $defi){
+                $res=defi::find($defi->id)->delete();
+            }
+            
+        })->timezone('Europe/Paris')->daily()->at('04:35');
     }
 
     /**

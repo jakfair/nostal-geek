@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\defi;
+use App\liendefi;
 use Illuminate\Http\Request;
 use App\fiche;
+use Auth;
 
 class fichecontroller extends Controller
 {
@@ -75,7 +77,60 @@ class fichecontroller extends Controller
     public function show($id)
     {
         $fiche = fiche::findOrFail($id);
-        $defis = defi::where('defis.idJeu','=', $fiche->id)->inRandomOrder()->limit(5)->get();
+
+
+
+        $defis = defi::join('liendefi', function($join)
+        {
+            $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+        })->where('defis.categorie','=','quotidien')->get();
+        if(!count($defis)){
+            $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','quotidien')->inRandomOrder()->limit(3)->get();
+            foreach ($newdefis as $newdefi){
+                $liendefi = new liendefi();
+                $liendefi->iduser = auth::id();
+                $liendefi->iddefi = $newdefi->id;
+                $liendefi->status = "a faire";
+                $liendefi->save();
+            }
+        }
+
+
+
+        $defis = defi::join('liendefi', function($join)
+    {
+        $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+    })->where('defis.categorie','=','hebdomadaire')->get();
+        if(!count($defis)){
+            $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','hebdomadaire')->inRandomOrder()->limit(2)->get();
+            foreach ($newdefis as $newdefi){
+                $liendefi = new liendefi();
+                $liendefi->iduser = auth::id();
+                $liendefi->iddefi = $newdefi->id;
+                $liendefi->status = "a faire";
+                $liendefi->save();
+            }
+        }
+
+        $defis = defi::join('liendefi', function($join)
+        {
+            $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+        })->where('defis.categorie','=','mensuel')->get();
+        if(!count($defis)){
+            $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','mensuel')->inRandomOrder()->limit(2)->get();
+            foreach ($newdefis as $newdefi){
+                $liendefi = new liendefi();
+                $liendefi->iduser = auth::id();
+                $liendefi->iddefi = $newdefi->id;
+                $liendefi->status = "a faire";
+                $liendefi->save();
+            }
+        }
+
+        $defis = defi::join('liendefi', function($join)
+        {
+            $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+        })->get();
         return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
     }
 
