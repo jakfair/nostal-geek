@@ -83,7 +83,18 @@ class Kernel extends ConsoleKernel
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('4:50');
+        })->timezone('Europe/Paris')->daily()->at('12:00');
+
+        $schedule->call(function(){
+            $defis = defi::join('liendefi', function($join)
+            {
+                $join->on('liendefi.iddefi', '=', 'defis.id');
+            })->where('defis.categorie','=','hebdomadaire')->select('*','liendefi.id as liendefi_id')->get();
+            foreach ($defis as $defi){
+                $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
+            }
+
+        })->timezone('Europe/Paris')->daily()->at('4:53');
     }
 
     /**
