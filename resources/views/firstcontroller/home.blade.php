@@ -5,6 +5,7 @@
             <input type="search" id="searchbar" name="search" placeholder="Recherchez une oeuvre">
             <button id="searchbar-button"><img src="/img/search.png"></button>
         </form>
+        <a href="propositionjeu/">
         <div class="card-discovery">
             <div class="container-visuel">
                 @foreach($propaljeux as $propaljeu)
@@ -13,9 +14,11 @@
             </div>
             <div class="text">
                 <h3>Une nouvelle sélection de jeux vidéo pour vous !</h3>
-                <a href="propositionjeu/">Consulter maintenant</a>
+                <span class="petitlien" href="propositionjeu/">Consulter maintenant</span>
             </div>
         </div>
+        </a>
+        <a href="propositionanime/">
         <div class="card-discovery">
             <div class="container-visuel">
                 @foreach($propalanimes as $propalanime)
@@ -24,9 +27,11 @@
             </div>
             <div class="text">
                 <h3>Une nouvelle sélection d'animés pour vous !</h3>
-                <a href="propositionanime/">Consulter maintenant</a>
+                <span class="petitlien">Consulter maintenant</span>
             </div>
         </div>
+        </a>
+        <a href="propositioncinema/">
         <div class="card-discovery">
             <div class="container-visuel">
                 @foreach($propalcinemas as $propalcinema)
@@ -35,9 +40,10 @@
             </div>
             <div class="text">
                 <h3>Une nouvelle sélection de séries et de films pour vous !</h3>
-                <a href="propositioncinema/">Consulter maintenant</a>
+                <span class="petitlien">Consulter maintenant</span>
             </div>
         </div>
+        </a>
         <div id="section-defi">
 
             <h3>Défis généraux ! <span class="time">Encore 21j pour les compléter</span></h3>
