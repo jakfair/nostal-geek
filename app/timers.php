@@ -9,5 +9,4 @@ use Illuminate\Database\Eloquent\Model;
 class timers extends Model
 {
     protected $table = "timers";
-    public $timestamps = false;
 }

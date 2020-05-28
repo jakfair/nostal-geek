@@ -8,6 +8,7 @@ use App\fichestored;
 use App\liendefi;
 use App\liensucces;
 use App\successtored;
+use App\timers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -74,7 +75,10 @@ class Kernel extends ConsoleKernel
                 $successtored->idsucccess = $cinema->id;
                 $successtored->save();
             }
-        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
+            $timer = timers::find(1)->timehebdomadaire;
+            $timer->Carbon::addWeeks(1);
+            $timer->save();
+        })->timezone('Europe/Paris')->daily()->at('22:40');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)

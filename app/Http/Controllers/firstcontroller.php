@@ -38,11 +38,19 @@ class firstcontroller extends Controller
         {
             $join->on('liensucces.idsucces', '=', 'succes.id')->where('liensucces.iduser', '=', auth::id());
         })->select('*','liensucces.status as liensucces_status','liensucces.id as liensucces_id')->get();
+        function dateDifference($date_1 , $date_2 , $differenceFormat = '%d Jours et %h heures' )
+        {
+            $datetime1 = date_create($date_1);
+            $datetime2 = date_create($date_2);
 
+            $interval = date_diff($datetime1, $datetime2);
+
+            return $interval->format($differenceFormat);
+
+        }
         $timer = timers::find(1)->timehebdomadaire;
-        $to_date = Carbon::createFromDate('Y-m-d H:s:i', $timer);
-        $from_date = Carbon::createFromDate('Y-m-d H:s:i', now(1));
-        $diffhebdo = $to_date->diffInDays($from_date, false);
+        $diffhebdo = dateDifference($timer,now(2));
+
 
         $propaljeux = fiche::join('oeuvrestored', function($join)
         {
