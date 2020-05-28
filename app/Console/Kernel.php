@@ -60,7 +60,7 @@ class Kernel extends ConsoleKernel
             $datetime1->add($interval);
             $timer->timehebdomadaire = $datetime1;
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('23:27');
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
@@ -94,7 +94,12 @@ class Kernel extends ConsoleKernel
             foreach ($defis as $defi){
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
-
+            $timer = timers::find(1);
+            $datetime1 = date_create($timer->timequotidien);
+            $interval = new DateInterval('P1D');
+            $datetime1->add($interval);
+            $timer->timequotidien = $datetime1;
+            $timer->save();
         })->timezone('Europe/Paris')->daily()->at('12:00');
 
         $schedule->call(function(){ //reset défi hebdomadaires tout les lundi a midi//
@@ -117,7 +122,12 @@ class Kernel extends ConsoleKernel
             foreach ($defis as $defi){
                 $res=liendefi::where('id','=',$defi->liendefi_id)->delete();
             }
-
+            $timer = timers::find(1);
+            $datetime1 = date_create($timer->timemensuel);
+            $interval = new DateInterval('P1M');
+            $datetime1->add($interval);
+            $timer->mensuel = $datetime1;
+            $timer->save();
         })->timezone('Europe/Paris')->monthlyOn(1, '12:00');
     }
 
