@@ -9,7 +9,10 @@ use App\liendefi;
 use App\liensucces;
 use App\ressource;
 use App\success;
+use App\timers;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class firstcontroller extends Controller
@@ -36,6 +39,10 @@ class firstcontroller extends Controller
             $join->on('liensucces.idsucces', '=', 'succes.id')->where('liensucces.iduser', '=', auth::id());
         })->select('*','liensucces.status as liensucces_status','liensucces.id as liensucces_id')->get();
 
+        $timer = timers::find(1)->timehebdomadaire;
+        $to_date = Carbon::createFromDate('Y-m-d H:s:i', $timer);
+        $from_date = Carbon::createFromDate('Y-m-d H:s:i', now(1));
+        $diffhebdo = $to_date->diffInDays($from_date, false);
 
         $propaljeux = fiche::join('oeuvrestored', function($join)
         {
@@ -49,7 +56,7 @@ class firstcontroller extends Controller
         {
             $join->on('animejeu.id', '=', 'oeuvrestored.idoeuvre');
         })->wherebetween('oeuvrestored.id', ['7', '9'])->get();
-        return view("firstcontroller.home",["generals"=>$finalgenerals,"propaljeux"=>$propaljeux,"propalanimes"=>$propalanimes,"propalcinemas"=>$propalcinemas]);
+        return view("firstcontroller.home",["diffhebdo"=>$diffhebdo,"generals"=>$finalgenerals,"propaljeux"=>$propaljeux,"propalanimes"=>$propalanimes,"propalcinemas"=>$propalcinemas]);
     }
     public function confirmsucces(Request $request){
         $user = Auth::user();

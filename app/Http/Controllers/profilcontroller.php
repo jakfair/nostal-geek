@@ -60,7 +60,7 @@ class profilcontroller extends Controller
         if (empty($lienami)) {
             $lienami = "none";
         }
-        $lienoeuvres = fiche::join('lienoeuvre', 'animejeu.id', '=','lienoeuvre.idfiche')->where('lienoeuvre.iduser','=', $id)->get();
+        $lienoeuvres = fiche::join('lienoeuvre', 'animejeu.id', '=','lienoeuvre.idfiche')->where('lienoeuvre.iduser','=', $id)->select('*','animejeu.id as fiche_id')->get();
         return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami, "lienoeuvres"=>$lienoeuvres]);
     }
 

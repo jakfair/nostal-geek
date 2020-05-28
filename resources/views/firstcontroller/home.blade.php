@@ -46,7 +46,7 @@
         </a>
         <div id="section-defi">
 
-            <h3>Défis généraux ! <span class="time">Encore 21j pour les compléter</span></h3>
+            <h3>Défis généraux ! <span class="time">Encore {{$diffhebdo}} pour les compléter</span></h3>
             @foreach($generals as $general)
             <div class="card-defi">
                 <div class="text">

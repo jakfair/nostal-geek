@@ -48,11 +48,13 @@
         <div id="fond" style="margin-left: 0">
             <div id="list_favoris">
                 @foreach($lienoeuvres as $lienoeuvre)
+                    <a href="/fiche/{{$lienoeuvre->fiche_id}}">
                 <div class="categorie">
 
                         <img src="{{$lienoeuvre->icone}}"/>
                         <p>{{$lienoeuvre->nom}}</p>
                 </div>
+                    </a>
                 @endforeach
             </div>
 
