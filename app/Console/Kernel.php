@@ -59,7 +59,7 @@ class Kernel extends ConsoleKernel
             $datetime1->add($interval);
             $timer->timehebdomadaire = $datetime1;
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('23:21');
+        })->timezone('Europe/Paris')->daily()->at('23:24');
 
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
