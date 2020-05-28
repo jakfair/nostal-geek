@@ -10,6 +10,7 @@ use App\liensucces;
 use App\successtored;
 use App\timers;
 use Carbon\Carbon;
+use DateInterval;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -59,7 +60,7 @@ class Kernel extends ConsoleKernel
             $datetime1->add($interval);
             $timer->timehebdomadaire = $datetime1;
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('23:24');
+        })->timezone('Europe/Paris')->daily()->at('23:27');
 
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
