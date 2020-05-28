@@ -28,7 +28,7 @@ a{
     margin-bottom: 9vh;
     text-align: center;
     width: 100vw;
-    min-height: 85vh;
+    /*min-height: 85vh;*/
     overflow: hidden;
     overflow-y: visible;
 }
@@ -199,9 +199,10 @@ footer a img{
 }
 .profil-link img{
     background-color: #95291E;
-    border-radius: 50%;
+    border-radius: 50px;
     width: 90%;
 }
+
 #searchbar{
     padding: 10px;
 }
@@ -342,19 +343,21 @@ h3{
     margin: 0;
     padding: 0;
     width: 250px;
+    border-radius: 50%;
 }
 #info-general .infos{
     color: white;
     text-align: left;
     margin: 0;
     margin-left: 25px;
+    font-size: 2.5rem;
 }
 #info-general h4{
     font-size: 3rem;
 }
 #info-general p{
     margin: 25px 0;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 #top{
     text-align: center;
@@ -454,7 +457,6 @@ h3{
 }
 
 #favoris{
-    padding-top: 20vh;
 }
 
 #favoris #list{
@@ -471,7 +473,9 @@ h3{
 #favoris #list img{
     width: 50%;
 }
-
+#fav{
+    filter: brightness(0.4);
+}
 #fond{
     display: grid;
     grid-template-columns: 100vw 100vw 100vw 100vw;
@@ -734,7 +738,17 @@ h3{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+textarea{
+    z-index: 100;
+    border-radius: 2vh;
+    border: none;
+    padding: 25px;
+    width: 75%;
+    margin-top: 3vh;
+    font-size: 1.8rem;
+    background-color: #ffefda;
 
+}
 /*ADMIN*/
 .ls_admin{
     display: flex;

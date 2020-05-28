@@ -55,13 +55,9 @@
                         <option value="aventure">Aventure</option>
                     </select>
                     <select class="cinema" name="categorie_cinema" id="categorie_cinema" style="display: none">
-                        <option value="comedie" selected>Comédie</option>
+                        <option value="horreur" selected>Horreur</option>
                         <option value="drame">Drame</option>
-                        <option value="horreur">Horreur</option>
-                        <option value="fantasy">Fantastique</option>
-                        <option value="sitcom">Sitcom</option>
-                        <option value="aventure">Aventure</option>
-                        <option value="science-fiction">Science-Fiction</option>
+                        <option value="comedie">Comédie</option>
                     </select>
                 </ul>
             </ul>

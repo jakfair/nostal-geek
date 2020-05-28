@@ -41,20 +41,18 @@
     <div id="favoris">
         <div id="list">
             <img id="fav" src="/img/star.png" onclick="toggleprofil('0')"/>
-            <img id="dessins" src="/img/amis.png" onclick="toggleprofil('1')"/>
-            <img id="movie" src="/img/films.png" onclick="toggleprofil('2')"/>
-            <img id="game" src="/img/jeux.png" onclick="toggleprofil('3')"/>
+            <img id="dessins" src="/img/tv2.png" onclick="toggleprofil('1')"/>
+            <img id="movie" src="/img/manette.png" onclick="toggleprofil('2')"/>
+            <img id="game" src="/img/camera.png" onclick="toggleprofil('3')"/>
         </div>
         <div id="fond" style="margin-left: 0">
             <div id="list_favoris">
                 @foreach($lienoeuvres as $lienoeuvre)
-                    <a href="/fiche/{{$lienoeuvre->fiche_id}}">
-                <div class="categorie">
-
-                        <img src="{{$lienoeuvre->icone}}"/>
+                    <div class="categorie">
+                        <a href="/fiche/{{$lienoeuvre->fiche_id}}"><img src="{{$lienoeuvre->icone}}"/></a>
                         <p>{{$lienoeuvre->nom}}</p>
                 </div>
-                    </a>
+
                 @endforeach
             </div>
 
