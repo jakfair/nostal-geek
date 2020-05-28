@@ -53,7 +53,10 @@ class Kernel extends ConsoleKernel
                 $fichestored->idoeuvre = $cinema->id;
                 $fichestored->save();
             }
-        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
+            $timer = timers::find(1);
+            $timer->timehebdomadaire = "test";
+            $timer->save();
+        })->timezone('Europe/Paris')->daily()->at('23:02');
 
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
@@ -76,10 +79,8 @@ class Kernel extends ConsoleKernel
                 $successtored->idsucccess = $cinema->id;
                 $successtored->save();
             }
-            $timer = timers::find(1);
-            $timer->timehebdomadaire = "test";
-            $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('22:58');
+
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
