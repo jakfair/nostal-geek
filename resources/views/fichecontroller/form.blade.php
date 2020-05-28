@@ -33,18 +33,31 @@
                 <ul id="categ">
                     <select class="jeu" name="categorie_jeu" id="categorie_jeux">
                         <option value="RPG" selected>RPG</option>
-                        <option value="FPS">FPS</option>
-                        <option value="RTS">RTS</option>
+                        <option value="course">Course</option>
+                        <option value="plateforme">Plateforme</option>
+                        <option value="horreur">Horreur</option>
+                        <option value="action">Action</option>
+                        <option value="gestion">Gestion</option>
+                        <option value="simulateurdevie">Simulateur de vie</option>
                     </select>
                     <select class="anime" name="categorie_anime" id="categorie_anime" style="display: none">
-                        <option value="isekai" selected>Isekai</option>
+                        <option value="comedie" selected>Comédie</option>
                         <option value="science-fiction">Science-Fiction</option>
-                        <option value="fantasy">Fantasy</option>
+                        <option value="fantasy">Fantastique</option>
+                        <option value="action">Action</option>
+                        <option value="drame">Drame</option>
+                        <option value="jeunesse">Jeunesse</option>
+                        <option value="musical">Comédie musicale</option>
+                        <option value="aventure">Aventure</option>
                     </select>
                     <select class="cinema" name="categorie_cinema" id="categorie_cinema" style="display: none">
-                        <option value="horreur" selected>Horreur</option>
+                        <option value="comedie" selected>Comédie</option>
                         <option value="drame">Drame</option>
-                        <option value="comedie">Comédie</option>
+                        <option value="horreur">Horreur</option>
+                        <option value="fantasy">Fantastique</option>
+                        <option value="sitcom">Sitcom</option>
+                        <option value="aventure">Aventure</option>
+                        <option value="science-fiction">Science-Fiction</option>
                     </select>
                 </ul>
             </ul>
