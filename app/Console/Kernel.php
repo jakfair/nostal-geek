@@ -54,9 +54,12 @@ class Kernel extends ConsoleKernel
                 $fichestored->save();
             }
             $timer = timers::find(1);
-            $timer->timehebdomadaire = "test";
+            $datetime1 = date_create($timer->timehebdomadaire);
+            $interval = new DateInterval('P7D');
+            $datetime1->add($interval);
+            $timer->timehebdomadaire = $datetime1;
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('23:02');
+        })->timezone('Europe/Paris')->daily()->at('23:21');
 
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//

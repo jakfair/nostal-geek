@@ -10,6 +10,7 @@ use App\liensucces;
 use App\ressource;
 use App\success;
 use App\timers;
+use DateInterval;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -50,6 +51,7 @@ class firstcontroller extends Controller
         }
         $timer = timers::find(1)->timehebdomadaire;
         $diffhebdo = dateDifference($timer,now(2));
+
 
 
         $propaljeux = fiche::join('oeuvrestored', function($join)
