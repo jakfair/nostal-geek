@@ -76,10 +76,10 @@ class Kernel extends ConsoleKernel
                 $successtored->idsucccess = $cinema->id;
                 $successtored->save();
             }
-            $timer = timers::find(1)->timehebdomadaire;
-            $timer = strtotime($timer."+ 7 days");
+            $timer = timers::find(1);
+            $timer->timehebdomadaire = strtotime($timer->timehebdomadaire."+ 7 days");
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('22:52');
+        })->timezone('Europe/Paris')->daily()->at('22:56');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
