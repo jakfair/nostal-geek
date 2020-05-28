@@ -341,6 +341,7 @@ h3{
 #info-general .avatar{
     margin: 0;
     padding: 0;
+    width: 250px;
 }
 #info-general .infos{
     color: white;
