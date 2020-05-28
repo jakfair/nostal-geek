@@ -6,7 +6,7 @@
         <div class="card-discovery" style="background-image: url('{{$jeu->banniere}}');">
             <div class="text">
                 <h3>{{$jeu->nom}}</h3>
-                <span>Découvrir !</span>
+                <span class="petitlien">Découvrir !</span>
             </div>
         </div>
         </a>
