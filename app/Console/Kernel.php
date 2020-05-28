@@ -77,7 +77,7 @@ class Kernel extends ConsoleKernel
                 $successtored->save();
             }
             $timer = timers::find(1);
-            $timer->timehebdomadaire = strtotime($timer->timehebdomadaire."+ 7 days");
+            $timer->timehebdomadaire = "test";
             $timer->save();
         })->timezone('Europe/Paris')->daily()->at('22:56');
 
