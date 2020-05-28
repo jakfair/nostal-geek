@@ -6,6 +6,7 @@ use App\defi;
 use App\fiche;
 use App\fichestored;
 use App\liendefi;
+use App\liensucces;
 use App\successtored;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -29,8 +30,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function(){ //générations trois propositions d'oeuvres pour chaque catégorie//
+        $schedule->call(function(){ //générations trois propositions d'oeuvres pour chaque catégorie et reset liensucces//
             fichestored::truncate();
+            liensucces::truncate();
             $propaljeu = fiche::where('animejeu.type','=', 'jeu')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalanime = fiche::where('animejeu.type','=', 'anime')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalcinema = fiche::where('animejeu.type','=', 'cinema')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();

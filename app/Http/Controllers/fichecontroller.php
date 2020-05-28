@@ -48,6 +48,7 @@ class fichecontroller extends Controller
         $fiche = new fiche();
         $fiche->nom = $request->input('nom');
         $fiche->description = $request->input('description');
+        $fiche->annee = $request->input('annee');
         $fiche->banniere = "/upload/".$name;
         $fiche->icone = "/upload/".$name2;
         if($request->input('type') == "jeu"){
@@ -78,8 +79,10 @@ class fichecontroller extends Controller
     public function show($id)
     {
         $fiche = fiche::findOrFail($id);
-
-
+        $favori = lienoeuvre::where('iduser','=',auth::id())->where('idfiche','=',$fiche->id)->first();
+        if(empty($favori)){
+            $favori = "non";
+        }
 
         $defis = defi::join('liendefi', function($join)
         {
@@ -95,8 +98,6 @@ class fichecontroller extends Controller
                 $liendefi->save();
             }
         }
-
-
 
         $defis = defi::join('liendefi', function($join)
     {
@@ -127,11 +128,12 @@ class fichecontroller extends Controller
                 $liendefi->save();
             }
         }
+
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
         })->where('defis.idJeu','=',$fiche->id)->select('*','liendefi.status as liendefi_status','liendefi.id as liendefi_id')->get();
-        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis]);
+        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis,"favori"=>$favori]);
     }
     public function addfavoris(Request $request)
     {
@@ -141,6 +143,12 @@ class fichecontroller extends Controller
         $lienoeuvre->save();
         return redirect(('/fiche/'.$request->input('ficheid')));
 
+    }
+    public function destroyfavori($id){
+        $res = lienoeuvre::find($id);
+        $pageid = $res->idfiche;
+        $res->delete();
+        return redirect()->to('/fiche/'.$pageid);
     }
     /**
      * Show the form for editing the specified resource.
@@ -169,6 +177,7 @@ class fichecontroller extends Controller
         $fiche->description = $request->input('description');
         $fiche->categorie = $request->input('categorie');
         $fiche->type = $request->input('type');
+        $fiche->annee = $request->input('annee');
         $fiche->status = $request->input('status');
         if(!empty($request->input('lienAchat'))){
             $fiche->lienAchat = $request->input('lienAchat');

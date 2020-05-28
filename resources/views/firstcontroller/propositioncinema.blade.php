@@ -2,11 +2,13 @@
 
 @section('content')
     @foreach($cinemas as $cinema)
+        <a href="/fiche/{{$cinema->fiche_id}}">
         <div class="card-discovery" style="background-image: url('{{$cinema->banniere}}');">
             <div class="text">
                 <h3>{{$cinema->nom}}</h3>
-                <a href="/fiche/{{$cinema->fiche_id}}">Découvrir !</a>
+                <span>Découvrir !</span>
             </div>
         </div>
+        </a>
     @endforeach
 @endsection

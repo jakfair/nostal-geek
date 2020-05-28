@@ -2,9 +2,21 @@
 
 @section('content')
     <div id="infofiche" style="background-image: url('{{$fiche->banniere}}')">
+        <div id="filter">  </div>
         <img src="{{$fiche->icone}}">
+        <form id="formfavori" method="post" action="/fiche/addfavoris">
+            {{ csrf_field() }}
+
+            <input type="text" value="{{Auth::user()->id}}" hidden name="userid">
+            <input type="text" value="{{$fiche->id}}" hidden name="ficheid">
+            @if($favori == "non")
+                <button type="submit"><img src="/img/star_alt.png"></button>
+            @else
+                <a href="/fiche/destroyfavori/{{$favori->id}}"><img src="/img/star.png"></a>
+            @endif
+        </form>
         <h4>{{$fiche->nom}}</h4>
-        <span>{{$fiche->categorie}}</span>
+        <span>{{$fiche->categorie}}</span><span id="annee">{{$fiche->annee}}</span>
         <div>
         @if($fiche -> type == "jeu")
             <a href="{!!$fiche->lienAchat!!}" target="_blank" ><img src="/img/buy.png"></a>
@@ -14,13 +26,14 @@
         @endif
         </div>
     </div>
+    <p id="description">{{$fiche->description}}</p>
     @if($fiche -> type == "jeu")
         @foreach($defis as $defi)
-            <div class="card-defi">
+            <div class="card-defi {{$defi->categorie}}">
                 <img src="{{$defi->icone}}">
                 <div class="text">
 
-                    <span class="intitule">{{$defi->intitule}}</span><br>
+                    <div class="intitule">{{$defi->intitule}}</div>
                     <div class="soustext">
                         <span class="points">{{$defi->nbPoint}} points</span>
                         @if($defi->liendefi_status == "a faire")
@@ -28,10 +41,10 @@
                                 {{ csrf_field() }}
                                 <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
                                 <input hidden name="idfiche" value="{{$fiche->id}}">
-                                <button type="submit">Appuyer ici pour confirmer</button>
+                                <button type="submit"><img src="/img/cercle.png"></button>
                             </form>
                         @else
-                            <span class="objectif">{{$defi->liendefi_status}}</span>
+                            <span class="objectif"><img src="/img/check.png"></span>
                         @endif
                     </div>
                 </div>
@@ -39,12 +52,4 @@
             @endforeach
         @include('defiscontroller.form')
     @endif
-
-     <form method="post" action="/fiche/addfavoris">
-         {{ csrf_field() }}
-
-         <input type="text" value="{{Auth::user()->id}}" hidden name="userid">
-         <input type="text" value="{{$fiche->id}}" hidden name="ficheid">
-         <button type="submit"><img src="/img/star.png"><button>
-     </form>
 @endsection

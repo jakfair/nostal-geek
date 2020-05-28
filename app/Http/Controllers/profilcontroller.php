@@ -60,7 +60,7 @@ class profilcontroller extends Controller
         if (empty($lienami)) {
             $lienami = "none";
         }
-        $lienoeuvres = fiche::join('lienoeuvre', 'animejeu.id', '=','lienoeuvre.idfiche')->where('lienoeuvre.iduser','=', $id)->get();
+        $lienoeuvres = fiche::join('lienoeuvre', 'animejeu.id', '=','lienoeuvre.idfiche')->where('lienoeuvre.iduser','=', $id)->select('*','animejeu.id as fiche_id')->get();
         return view("profilcontroller.show",["profil"=>$profil,"user"=>$user,"lienami"=>$lienami, "lienoeuvres"=>$lienoeuvres]);
     }
 
@@ -87,10 +87,13 @@ class profilcontroller extends Controller
     public function update(Request $request, $id)
     {
         $profil = profil::find($id);
-        $profil ->email = $request->input('email');
-        $profil ->password = $request->input('password');
         $profil ->name = $request->input('name');
         $profil ->age = $request->input('age');
+        if($request->hasFile('avatar')){
+            $name = $request->file('avatar')->hashName();
+            $request->file('avatar')->move('upload/',$name);
+            $profil->avatar = "/upload/".$name;
+        }
         $profil->save();
         $user = Auth::user();
         return redirect()->to('/profil/'.$user->id);

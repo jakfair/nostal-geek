@@ -3,15 +3,16 @@
 @section('content')
     <div class="fiche_form">
         <div class="fiche_form_title">
-            <span>Formulaire</span><br/>
-            <span>Création de fiche de jeu vidéo/animé</span>
+            <span>Création de fiche de jeu vidéo/animé/film/série</span><br/>
         </div>
     <form method="post" id="formfiche" action="/form/addfiche" enctype="multipart/form-data">
         {{ csrf_field() }}
         <span class="fiche_form_text">Titre</span></br>
             <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre" required><br/>
         <span class="fiche_form_text">Description</span></br>
-            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required>
+            <input type="text" name="description" placeholder="Entrez la description de l'oeuvre" required><br>
+        <span class="fiche_form_text">Année de sortie</span></br>
+        <input type="text" name="annee" placeholder="Entrez l'année de sortie de l'oeuvre" required>
         <div class="button_radio_lst">
             <ul id="row">
                 <ul id="liste">
@@ -33,6 +34,8 @@
                 <ul id="categ">
                     <select class="jeu" name="categorie_jeu" id="categorie_jeux">
                         <option value="RPG" selected>RPG</option>
+                        <option value="FPS">FPS</option>
+                        <option value="RTS">RTS</option>
                         <option value="course">Course</option>
                         <option value="plateforme">Plateforme</option>
                         <option value="horreur">Horreur</option>
@@ -41,9 +44,10 @@
                         <option value="simulateurdevie">Simulateur de vie</option>
                     </select>
                     <select class="anime" name="categorie_anime" id="categorie_anime" style="display: none">
-                        <option value="comedie" selected>Comédie</option>
+                        <option value="isekai" selected>Isekai</option>
                         <option value="science-fiction">Science-Fiction</option>
-                        <option value="fantasy">Fantastique</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="comedie" selected>Comédie</option>
                         <option value="action">Action</option>
                         <option value="drame">Drame</option>
                         <option value="jeunesse">Jeunesse</option>
@@ -51,13 +55,9 @@
                         <option value="aventure">Aventure</option>
                     </select>
                     <select class="cinema" name="categorie_cinema" id="categorie_cinema" style="display: none">
-                        <option value="comedie" selected>Comédie</option>
+                        <option value="horreur" selected>Horreur</option>
                         <option value="drame">Drame</option>
-                        <option value="horreur">Horreur</option>
-                        <option value="fantasy">Fantastique</option>
-                        <option value="sitcom">Sitcom</option>
-                        <option value="aventure">Aventure</option>
-                        <option value="science-fiction">Science-Fiction</option>
+                        <option value="comedie">Comédie</option>
                     </select>
                 </ul>
             </ul>

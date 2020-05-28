@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
     route::post('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
     route::post('/fiche/addfavoris','fichecontroller@addfavoris')->where('id', '[0-9]+');
+    route::get('/fiche/destroyfavori/{id}','fichecontroller@destroyfavori')->where('id', '[0-9]+');
 
     route::get('/defi/{id}','deficontroller@show')->where('id', '[0-9]+');
     route::post('/form/addDefis','deficontroller@store');
@@ -45,6 +46,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::get('/success/edit/{id}','successcontroller@edit')->where('id', '[0-9]+');
     route::post('/success/update/{id}','successcontroller@update')->where('id', '[0-9]+');
     route::get('/success/destroy/{id}','successcontroller@destroy')->where('id', '[0-9]+');
+    route::post('success/confirm','firstcontroller@confirmsucces');
 
     route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
     Route::post('/profil/update/{id}','profilcontroller@update')->where('id', '[0-9]+');
