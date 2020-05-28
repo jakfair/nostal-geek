@@ -24,7 +24,7 @@
             <span>Niveau: {{$user->nbpoints}}</span>
         </div>
     </div>
-    <!--<div id="top">
+    <div id="top">
         <h2>Ses top 1:</h2>
         <div id="soustop">
             <div id="topjeu">
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-    </div>-->
+    </div>
     <div id="favoris">
         <div id="list">
             <img id="fav" src="/img/star.png" onclick="toggleprofil('0')"/>
