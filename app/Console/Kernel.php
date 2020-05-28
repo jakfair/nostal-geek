@@ -79,7 +79,7 @@ class Kernel extends ConsoleKernel
             $timer = timers::find(1);
             $timer->timehebdomadaire = "test";
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('22:56');
+        })->timezone('Europe/Paris')->daily()->at('22:58');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
