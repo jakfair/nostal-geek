@@ -9,6 +9,7 @@ use App\liendefi;
 use App\liensucces;
 use App\successtored;
 use App\timers;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -76,9 +77,9 @@ class Kernel extends ConsoleKernel
                 $successtored->save();
             }
             $timer = timers::find(1)->timehebdomadaire;
-            $timer->Carbon::addWeeks(1);
+            $timer = Carbon::$timer->addWeeks(1);
             $timer->save();
-        })->timezone('Europe/Paris')->daily()->at('22:40');
+        })->timezone('Europe/Paris')->daily()->at('22:47');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
