@@ -34,7 +34,7 @@ class admincontroller extends Controller
     }
     public function succes()
     {
-        $success = success::all();
+        $success = success::all()->orderBy('defis.status');
         return view("successcontroller.viewall",["success"=>$success]);
     }
 

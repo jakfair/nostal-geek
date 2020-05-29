@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Nostal-Geek @yield('title')</title>
+    <link rel="shortcut icon" href="/img/logo.png">
     <link href="{{ asset('css/styles.css') }}?v=3" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
 
