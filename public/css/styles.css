@@ -457,6 +457,7 @@ h3{
 }
 
 #favoris{
+    margin-top: 400px;
 }
 
 #favoris #list{
@@ -465,13 +466,12 @@ h3{
     display: grid;
     grid-template-columns : 1fr 1fr 1fr 1fr;
     grid-template-rows : 5vh;
-    background-image: url("../img/back.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 #favoris #list img{
-    width: 50%;
+    width: 100px;
 }
 #fav{
     filter: brightness(0.4);
@@ -479,7 +479,6 @@ h3{
 #fond{
     display: grid;
     grid-template-columns: 100vw 100vw 100vw 100vw;
-    background-color: #EE724A;
     transition-duration: .5s;
 }
 

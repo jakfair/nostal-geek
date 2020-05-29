@@ -27,10 +27,10 @@
 
     <div id="favoris">
         <div id="list">
-            <img id="fav" src="/img/star.png" onclick="toggleprofil('0')"/>
-            <img id="dessins" src="/img/tv2.png" onclick="toggleprofil('1')"/>
-            <img id="movie" src="/img/manette.png" onclick="toggleprofil('2')"/>
-            <img id="game" src="/img/camera.png" onclick="toggleprofil('3')"/>
+            <img id="buttonsearch0" class="buttonsearch" src="/img/star.png" onclick="toggleprofil('0')"/>
+            <img id="buttonsearch1" class="buttonsearch" src="/img/films.png" onclick="toggleprofil('1')"/>
+            <img id="buttonsearch2" class="buttonsearch" src="/img/jeux.png" onclick="toggleprofil('2')"/>
+            <img id="buttonsearch3" class="buttonsearch" src="/img/cinemas.png" onclick="toggleprofil('3')"/>
         </div>
         <div id="fond" style="margin-left: 0">
             <div id="list_favoris">
@@ -38,124 +38,39 @@
                     <div class="categorie">
                         <a href="/fiche/{{$lienoeuvre->fiche_id}}"><img src="{{$lienoeuvre->icone}}"/></a>
                         <p>{{$lienoeuvre->nom}}</p>
-                </div>
-
+                    </div>
                 @endforeach
             </div>
 
             <div id="list_favoris">
-                <div class="categorie">
-                    <img src="/img/smurfs.png"/>
-                    <p>Les schtroumpfs</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/witch.png"/>
-                    <p>Witch</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/kilari.png"/>
-                    <p>Kilari</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/smurfs.png"/>
-                    <p>Les schtroumpfs</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/witch.png"/>
-                    <p>Witch</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/kilari.png"/>
-                    <p>Kilari</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/smurfs.png"/>
-                    <p>Les schtroumpfs</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/witch.png"/>
-                    <p>Witch</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/kilari.png"/>
-                    <p>Kilari</p>
-                </div>
+                @foreach($lienoeuvres as $lienoeuvre)
+                    @if($lienoeuvre->type == "anime")
+                    <div class="categorie">
+                        <a href="/fiche/{{$lienoeuvre->fiche_id}}"><img src="{{$lienoeuvre->icone}}"/></a>
+                        <p>{{$lienoeuvre->nom}}</p>
+                    </div>
+                    @endif
+                @endforeach
         </div>
             <div id="list_favoris">
-                <div class="categorie">
-                    <img src="/img/avatar.png"/>
-                    <p>Avatar</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/charmed.png"/>
-                    <p>Charmed</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/friends.png"/>
-                    <p>Friends</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/avatar.png"/>
-                    <p>Avatar</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/charmed.png"/>
-                    <p>Charmed</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/friends.png"/>
-                    <p>Friends</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/avatar.png"/>
-                    <p>Avatar</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/charmed.png"/>
-                    <p>Charmed</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/friends.png"/>
-                    <p>Friends</p>
-                </div>
+                @foreach($lienoeuvres as $lienoeuvre)
+                    @if($lienoeuvre->type == "jeu")
+                    <div class="categorie">
+                        <a href="/fiche/{{$lienoeuvre->fiche_id}}"><img src="{{$lienoeuvre->icone}}"/></a>
+                        <p>{{$lienoeuvre->nom}}</p>
+                    </div>
+                    @endif
+                @endforeach
             </div>
             <div id="list_favoris">
-                <div class="categorie">
-                    <img src="/img/sims.png"/>
-                    <p>Les Sims</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/jack.png"/>
-                    <p>Jack et Da</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/wow.png"/>
-                    <p>World of Warcraft</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/sims.png"/>
-                    <p>Les Sims</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/jack.png"/>
-                    <p>Jack et Da</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/wow.png"/>
-                    <p>World of Warcraft</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/sims.png"/>
-                    <p>Les Sims</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/jack.png"/>
-                    <p>Jack et Da</p>
-                </div>
-                <div class="categorie">
-                    <img src="/img/wow.png"/>
-                    <p>World of Warcraft</p>
-                </div>
+                @foreach($lienoeuvres as $lienoeuvre)
+                    @if($lienoeuvre->type == "cinema")
+                    <div class="categorie">
+                        <a href="/fiche/{{$lienoeuvre->fiche_id}}"><img src="{{$lienoeuvre->icone}}"/></a>
+                        <p>{{$lienoeuvre->nom}}</p>
+                    </div>
+                    @endif
+                @endforeach
             </div>
         </div>
 

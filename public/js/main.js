@@ -54,6 +54,11 @@ function togglesearch(type){
 
 function toggleprofil(type){
     document.getElementById("fond").style.marginLeft ="-"+type+"00vw";
+    var buttonsearch = document.getElementsByClassName("buttonsearch");
+    for(i=0;i<buttonsearch.length;i++){
+        buttonsearch[i].style.backgroundColor = "transparent";
+    }
+    document.getElementById("buttonsearch"+type).style.backgroundColor  = "#52BEC8";
 
 }
 //
