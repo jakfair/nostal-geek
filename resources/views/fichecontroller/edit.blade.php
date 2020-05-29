@@ -11,6 +11,7 @@
         </div>
         <div id="fiche">
             <div id="type">Type = {{$fiche ->type}}</div>
+            <input type="text" hidden name="type" value="{{$fiche ->type}}">
                 <div id="selecte">
                     @if($fiche->type == "jeu")
                     <select name="categorie" id="categorie_jeux">
