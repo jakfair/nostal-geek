@@ -35,7 +35,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function(){ //générations trois propositions d'oeuvres pour chaque catégorie et reset liensucces//
             fichestored::truncate();
-            liensucces::truncate();
             $propaljeu = fiche::where('animejeu.type','=', 'jeu')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalanime = fiche::where('animejeu.type','=', 'anime')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalcinema = fiche::where('animejeu.type','=', 'cinema')->where('animejeu.status','=','confirme')->inRandomOrder()->limit(3)->get();
@@ -65,6 +64,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
             successtored::truncate();
+            liensucces::truncate();
             $propaljeu = succes::where('succes.type','=', 'jeu')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalanime = succes::where('succes.type','=', 'anime')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
             $propalcinema = succes::where('succes.type','=', 'cinema')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
@@ -84,7 +84,7 @@ class Kernel extends ConsoleKernel
                 $successtored->save();
             }
 
-        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
+        })->timezone('Europe/Paris')->daily()->at('13:40');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
