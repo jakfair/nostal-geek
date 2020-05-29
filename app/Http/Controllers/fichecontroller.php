@@ -88,7 +88,7 @@ class fichecontroller extends Controller
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
-        })->where('defis.categorie','=','quotidien')->where('idfiche','=',$fiche->id)->get();
+        })->where('defis.categorie','=','quotidien')->where('defis.idJeu','=',$fiche->id)->get();
         if(!count($defis)){
             $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','quotidien')->inRandomOrder()->limit(3)->get();
             foreach ($newdefis as $newdefi){
@@ -103,7 +103,7 @@ class fichecontroller extends Controller
         $defis = defi::join('liendefi', function($join)
     {
         $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
-    })->where('defis.categorie','=','hebdomadaire')->where('idfiche','=',$fiche->id)->get();
+    })->where('defis.categorie','=','hebdomadaire')->where('defis.idJeu','=',$fiche->id)->get();
         if(!count($defis)){
             $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','hebdomadaire')->inRandomOrder()->limit(2)->get();
             foreach ($newdefis as $newdefi){
@@ -118,7 +118,7 @@ class fichecontroller extends Controller
         $defis = defi::join('liendefi', function($join)
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
-        })->where('defis.categorie','=','mensuel')->where('idfiche','=',$fiche->id)->get();
+        })->where('defis.categorie','=','mensuel')->where('defis.idJeu','=',$fiche->id)->get();
         if(!count($defis)){
             $newdefis = defi::where('defis.idJeu','=', $fiche->id)->where('defis.status','=','confirme')->where('defis.categorie','=','mensuel')->inRandomOrder()->limit(1)->get();
             foreach ($newdefis as $newdefi){
