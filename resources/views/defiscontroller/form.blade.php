@@ -9,8 +9,8 @@
             <option value="mensuel">Mensuel</option>
         </select>
         <input type="number" name="points" placeholder="Nombre de points" required>
-        <input type="file" name="icone" accept='image/png, image/jpeg'/>
-        <input type="hidden" name="idjeu" value="{{$fiche->id}}" required>
+        <input type="file" name="icone" accept='image/png, image/jpeg' required/>
+        <input type="hidden" name="idjeu" value="{{$fiche->id}}">
         <button type="submit"><img src="/img/next.png"/></button>
     </form>
 
