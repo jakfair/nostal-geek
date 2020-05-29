@@ -66,9 +66,10 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
             successtored::truncate();
             liensucces::truncate();
-            $propaljeu = success::where('type','=', 'jeu')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
-            $propalanime = success::where('type','=', 'anime')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
-            $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
+
+            $propaljeu = success::where('type','=', 'jeu')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
+            $propalanime = success::where('type','=', 'anime')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
+            $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
             foreach ($propaljeu as $jeu){
                 $successtored = new successtored();
                 $successtored->idsuccess = $jeu->id;
@@ -84,6 +85,7 @@ class Kernel extends ConsoleKernel
                 $successtored->idsuccess = $cinema->id;
                 $successtored->save();
             }
+
 
         })->timezone('Europe/Paris')->daily()->at('14:17');
 

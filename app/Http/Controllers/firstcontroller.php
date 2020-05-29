@@ -20,25 +20,6 @@ use Illuminate\Support\Facades\Auth;
 class firstcontroller extends Controller
 {
     public function index(){
-        $propaljeu = success::where('type','=', 'jeu')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
-        $propalanime = success::where('type','=', 'anime')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
-        $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
-        foreach ($propaljeu as $jeu){
-            $successtored = new successtored();
-            $successtored->idsuccess = $jeu->id;
-            $successtored->save();
-        }
-        foreach ($propalanime as $anime){
-            $successtored = new successtored();
-            $successtored->idsuccess = $anime->id;
-            $successtored->save();
-        }
-        foreach ($propalcinema as $cinema){
-            $successtored = new successtored();
-            $successtored->idsuccess = $cinema->id;
-            $successtored->save();
-        }
-
 
         $generals = success::join('successtored', function($join)
         {
