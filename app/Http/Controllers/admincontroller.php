@@ -15,7 +15,7 @@ class admincontroller extends Controller
 
     public function fiche()
     {
-        $fiches = fiche::all();
+        $fiches = fiche::orderBy('animejeu.status')->get();
         return view("fichecontroller.viewall",["fiches"=>$fiches]);
     }
 

@@ -5,12 +5,13 @@
     <div class="ls_admin">
         <span class="ls_admin_title">Toutes les fiches d'animé/jeu vidéo</span>
         @foreach($fiches as $fiche)
-            <div class="ls_admin_nom_lien">
-                <span class="ls_admin_nom">{{$fiche->nom}}</span>
-                <div class="ls_admin_lien">
-                <a href="/fiche/edit/{{$fiche->id}}">modifier</a>
-                <a href="/fiche/destroy/{{$fiche->id}}">supp</a><br/>
-                </div>
+            <div class="ls_admin_nom_lien {{$fiche->status}}">
+                <div class="ls_admin_nom success_nom">{{$fiche->nom}}</div>
+                @if($fiche->status == "a confirmer")
+                    <a href="/success/confirmer/{{$fiche->id}}">Confirmer</a>
+                @endif
+                <a href="/success/edit/{{$fiche->id}}">modifier</a>
+                <a href="/success/destroy/{{$fiche->id}}">supp</a><br/>
             </div>
         @endforeach
     </div>
