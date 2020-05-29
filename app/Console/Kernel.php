@@ -71,21 +71,21 @@ class Kernel extends ConsoleKernel
             $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
             foreach ($propaljeu as $jeu){
                 $successtored = new successtored();
-                $successtored->idsucccess = $jeu->id;
+                $successtored->idsuccess = $jeu->id;
                 $successtored->save();
             }
             foreach ($propalanime as $anime){
                 $successtored = new successtored();
-                $successtored->idsucccess = $anime->id;
+                $successtored->idsuccess = $anime->id;
                 $successtored->save();
             }
             foreach ($propalcinema as $cinema){
                 $successtored = new successtored();
-                $successtored->idsucccess = $cinema->id;
+                $successtored->idsuccess = $cinema->id;
                 $successtored->save();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('13:52');
+        })->timezone('Europe/Paris')->daily()->at('14:17');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)

@@ -9,6 +9,7 @@ use App\liendefi;
 use App\liensucces;
 use App\ressource;
 use App\success;
+use App\successtored;
 use App\timers;
 use DateInterval;
 use DateTime;
@@ -19,6 +20,26 @@ use Illuminate\Support\Facades\Auth;
 class firstcontroller extends Controller
 {
     public function index(){
+        $propaljeu = success::where('type','=', 'jeu')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
+        $propalanime = success::where('type','=', 'anime')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
+        $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->take(3)->get();
+        foreach ($propaljeu as $jeu){
+            $successtored = new successtored();
+            $successtored->idsuccess = $jeu->id;
+            $successtored->save();
+        }
+        foreach ($propalanime as $anime){
+            $successtored = new successtored();
+            $successtored->idsuccess = $anime->id;
+            $successtored->save();
+        }
+        foreach ($propalcinema as $cinema){
+            $successtored = new successtored();
+            $successtored->idsuccess = $cinema->id;
+            $successtored->save();
+        }
+
+
         $generals = success::join('successtored', function($join)
         {
             $join->on('succes.id', '=', 'successtored.idsuccess');
@@ -69,6 +90,8 @@ class firstcontroller extends Controller
         })->wherebetween('oeuvrestored.id', ['7', '9'])->get();
         return view("firstcontroller.home",["diffhebdo"=>$diffhebdo,"generals"=>$finalgenerals,"propaljeux"=>$propaljeux,"propalanimes"=>$propalanimes,"propalcinemas"=>$propalcinemas]);
     }
+
+
     public function confirmsucces(Request $request){
         $user = Auth::user();
         $succes = success::join('liensucces', function($join)
@@ -80,7 +103,7 @@ class firstcontroller extends Controller
         $res = liensucces::where('id','=',$request->input('idliensucces'))->first();
         $res->status = "Terminé";
         $res->save();
-        return redirect()->to('/');
+        return redirect()->to('/#section-defi');
     }
     public function search(Request $request){
         $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->orderBy('nom', 'ASC')->get();
