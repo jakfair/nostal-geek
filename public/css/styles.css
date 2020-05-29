@@ -788,6 +788,10 @@ textarea{
     margin: auto;
     color: white;
 }
+.success_nom{
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
 .ls_admin_lien{
     display: flex;
     flex-direction: column;

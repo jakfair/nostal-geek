@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/success/update/{id}','successcontroller@update')->where('id', '[0-9]+');
     route::get('/success/destroy/{id}','successcontroller@destroy')->where('id', '[0-9]+');
     route::post('success/confirm','firstcontroller@confirmsucces');
+    route::get('/success/confirmer/{id}','successcontroller@confirmsucces')->where('id', '[0-9]+');
 
     route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');
     Route::post('/profil/update/{id}','profilcontroller@update')->where('id', '[0-9]+');

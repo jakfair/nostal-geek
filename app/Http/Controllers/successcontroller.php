@@ -16,7 +16,7 @@ class successcontroller extends Controller
     public function index()
     {
         $success = success::all();
-        return view("successscontroller.viewall",["success"=>$success,"general"=>$general]);
+        return view("successscontroller.viewall",["success"=>$success]);
     }
 
     /**
@@ -99,6 +99,12 @@ class successcontroller extends Controller
     public function destroy($id)
     {
         $res=success::find($id)->delete();
+        return redirect('/admin/success');
+    }
+    public function confirmsucces($id){
+        $success = success::find($id);
+        $success->status = "confirme";
+        $success->save();
         return redirect('/admin/success');
     }
 }
