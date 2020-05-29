@@ -233,5 +233,11 @@ class fichecontroller extends Controller
         $res=fiche::find($id)->delete();
         return redirect('/admin/fiches');
     }
+    public function confirmfiche($id){
+        $fiche = fiche::find($id);
+        $fiche->status = "confirme";
+        $fiche->save();
+        return redirect('/admin/fiches');
+    }
 }
 

@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
     route::post('/fiche/addfavoris','fichecontroller@addfavoris')->where('id', '[0-9]+');
     route::get('/fiche/destroyfavori/{id}','fichecontroller@destroyfavori')->where('id', '[0-9]+');
+    route::get('/fiche/confirmer/{id}','fichecontroller@confirmfiche')->where('id', '[0-9]+');
 
     route::get('/defi/{id}','deficontroller@show')->where('id', '[0-9]+');
     route::post('/form/addDefis','deficontroller@store');

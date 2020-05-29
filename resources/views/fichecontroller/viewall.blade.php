@@ -8,10 +8,10 @@
             <div class="ls_admin_nom_lien {{$fiche->status}}">
                 <div class="ls_admin_nom success_nom">{{$fiche->nom}}</div>
                 @if($fiche->status == "a confirmer")
-                    <a href="/success/confirmer/{{$fiche->id}}">Confirmer</a>
+                    <a href="/fiche/confirmer/{{$fiche->id}}">Confirmer</a>
                 @endif
-                <a href="/success/edit/{{$fiche->id}}">modifier</a>
-                <a href="/success/destroy/{{$fiche->id}}">supp</a><br/>
+                <a href="/fiche/edit/{{$fiche->id}}">modifier</a>
+                <a href="/fiche/destroy/{{$fiche->id}}">supp</a><br/>
             </div>
         @endforeach
     </div>
