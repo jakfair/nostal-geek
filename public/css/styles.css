@@ -764,22 +764,25 @@ textarea{
     font-size: 3rem;
     color: white;
     border-bottom: 2px solid white;
+    padding: 30px;
 }
 .ls_admin a{
     color: white;
     border: 2px solid white;
-    padding: 2vh;
-    margin: 3vh;
+    padding: 20px;
+    margin: 20px;
 
 }
 
 .ls_admin_nom_lien{
-    margin: 3vh;
-    display: flex;
-    flex-direction: row;
-    vertical-align: middle;
+    width: 90vw;
+    margin-bottom: 25px;
     background-color:#52BEC8;
-border-radius: 50px;
+    border-radius: 20px;
+    padding-bottom: 50px;
+}
+.confirmer{
+    background-color: #95291E;
 }
 .ls_admin_nom{
     font-size: 2rem;

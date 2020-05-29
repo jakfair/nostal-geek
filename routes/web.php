@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
     route::get('/defi/destroy/{id}','deficontroller@destroy')->where('id', '[0-9]+');
     route::post('/defi/confirm','deficontroller@confirm');
+    route::get('/defi/confirmer/{id}','deficontroller@confirmdefi')->where('id', '[0-9]+');
 
     route::get('/success/{id}','successcontroller@show')->where('id', '[0-9]+');
     route::post('/form/addsuccess','successcontroller@store');

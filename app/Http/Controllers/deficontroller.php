@@ -129,5 +129,11 @@ class deficontroller extends Controller
         $res->save();
         return redirect()->to('/fiche/'.$request->input('idfiche'));
     }
+    public function confirmdefi($id){
+        $defi = defi::find($id);
+        $defi->status = "confirme";
+        $defi->save();
+        return redirect('/admin/defis');
+    }
 }
 

@@ -26,7 +26,10 @@ class admincontroller extends Controller
     }
     public function defi()
     {
-        $defis = defi::all();
+        $defis = defi::join('animejeu', function($join)
+        {
+            $join->on('defis.idJeu', '=', 'animejeu.id');
+        })->orderBy('defis.status')->orderBy('animejeu.nom')->select('*','defis.id as defis_id','defis.status as defis_status')->get();
         return view("defiscontroller.viewall",["defis"=>$defis]);
     }
     public function succes()
