@@ -87,7 +87,7 @@ class Kernel extends ConsoleKernel
             }
 
 
-        })->timezone('Europe/Paris')->daily()->at('14:27');
+        })->timezone('Europe/Paris')->weekly()->mondays()->at('12:00');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
