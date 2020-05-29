@@ -66,9 +66,9 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){ //générations trois succès pour chaque catégorie//
             successtored::truncate();
             liensucces::truncate();
-            $propaljeu = success::where('succes.type','=', 'jeu')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
-            $propalanime = success::where('succes.type','=', 'anime')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
-            $propalcinema = success::where('succes.type','=', 'cinema')->where('succes.status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propaljeu = success::where('type','=', 'jeu')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalanime = success::where('type','=', 'anime')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
+            $propalcinema = success::where('type','=', 'cinema')->where('status','=','confirme')->inRandomOrder()->limit(3)->get();
             foreach ($propaljeu as $jeu){
                 $successtored = new successtored();
                 $successtored->idsucccess = $jeu->id;
@@ -85,7 +85,7 @@ class Kernel extends ConsoleKernel
                 $successtored->save();
             }
 
-        })->timezone('Europe/Paris')->daily()->at('13:46');
+        })->timezone('Europe/Paris')->daily()->at('13:52');
 
         $schedule->call(function(){ //reset défi journalier tout les jours a midi//
             $defis = defi::join('liendefi', function($join)
