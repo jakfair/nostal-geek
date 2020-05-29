@@ -6,7 +6,7 @@
         {{ csrf_field() }}
         <div id="bouton">
             <input type="text" name="nom" placeholder="entrez le nom de l'oeuvre" value="{{$fiche->nom}}">
-            <textarea name="description" placeholder="entrez la description de l'oeuvre" value="{{$fiche->description}}"></textarea>
+            <textarea name="description" placeholder="entrez la description de l'oeuvre">{{$fiche->description}}</textarea>
             <input type="text" name="annee" placeholder="entrez la description de l'oeuvre" value="{{$fiche->annee}}">
         </div>
         <div id="fiche">
