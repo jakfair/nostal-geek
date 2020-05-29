@@ -24,20 +24,7 @@
             <span>Niveau: {{$user->nbpoints}}</span>
         </div>
     </div>
-    <div id="top">
-        <h2>Ses top 1:</h2>
-        <div id="soustop">
-            <div id="topjeu">
-                <h3>Jeux vidéo</h3>
-                <a href="#"><img src="/img/jak_3.jpg"></a>
-            </div>
-            <div id="topanime">
-                <h3>Dessin animé</h3>
-                <a href="#"><img src="/img/il-etait-une-fois-la-vie-dvd.jpg"></a>
-            </div>
-        </div>
 
-    </div>
     <div id="favoris">
         <div id="list">
             <img id="fav" src="/img/star.png" onclick="toggleprofil('0')"/>

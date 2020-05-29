@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\defi;
 use App\liendefi;
 use App\lienoeuvre;
+use App\timers;
 use Illuminate\Http\Request;
 use App\fiche;
 use Auth;
@@ -133,7 +134,24 @@ class fichecontroller extends Controller
         {
             $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
         })->where('defis.idJeu','=',$fiche->id)->select('*','liendefi.status as liendefi_status','liendefi.id as liendefi_id')->get();
-        return view("fichecontroller.show",["fiche"=>$fiche,"defis"=>$defis,"favori"=>$favori]);
+
+        function dateDifference($date_1 , $date_2 , $differenceFormat)
+        {
+            $datetime1 = date_create($date_1);
+            $datetime2 = date_create($date_2);
+
+            $interval = date_diff($datetime1, $datetime2);
+
+            return $interval->format($differenceFormat);
+
+        }
+        $timer = timers::find(1)->timehebdomadaire;
+        $diffhebdo = dateDifference($timer,now(2),'%d Jours et %h heures');
+        $timer = timers::find(1)->timequotidien;
+        $diffquo = dateDifference($timer,now(2),'%h heures et %i minutes');
+        $timer = timers::find(1)->timemensuel;
+        $diffmensuel = dateDifference($timer,now(2),'%d Jours et %h heures');
+        return view("fichecontroller.show",["diffmensuel"=>$diffmensuel,"diffhebdo"=>$diffhebdo,"diffquo"=>$diffquo,"fiche"=>$fiche,"defis"=>$defis,"favori"=>$favori]);
     }
     public function addfavoris(Request $request)
     {

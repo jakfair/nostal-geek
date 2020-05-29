@@ -565,6 +565,14 @@ h3{
 }
 #description{
     color: white;
+    margin: 5vw;
+    font-size: 0.8rem;
+}
+.titredefifiche{
+    color: #95291E;
+}
+.titredefifiche span{
+    font-size: 0.8rem;
 }
 #infofiche>div{
     bottom: 15px;
