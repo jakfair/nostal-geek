@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/form/addfiche','fichecontroller@store');
     Route::get('/fiche/edit/{id}','fichecontroller@edit')->where('id', '[0-9]+');
     Route::post('/fiche/update/{id}','fichecontroller@update')->where('id', '[0-9]+');
-    route::post('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
+    route::get('/fiche/destroy/{id}','fichecontroller@destroy')->where('id', '[0-9]+');
     route::post('/fiche/addfavoris','fichecontroller@addfavoris')->where('id', '[0-9]+');
     route::get('/fiche/destroyfavori/{id}','fichecontroller@destroyfavori')->where('id', '[0-9]+');
     route::get('/fiche/confirmer/{id}','fichecontroller@confirmfiche')->where('id', '[0-9]+');

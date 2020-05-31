@@ -21,7 +21,7 @@
             <h4>{{$user->name}}</h4>
             <span>{{$user->age}} ans</span>
             <p>{{$user->bio}}</p>
-            <span>Niveau: {{$user->nbpoints}}</span>
+            <span>Points: {{$user->nbpoints}}</span>
         </div>
     </div>
 
