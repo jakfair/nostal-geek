@@ -18,7 +18,7 @@
     @yield('content')
 </div>
 <footer>
-    <a href="/logout"><img src="/img/logout.png"/></a>
+    <a href="/form/fiche"><img src="/img/upload.png"/></a>
     <a class="profil-link" href="/profil/{{Auth::user()->id}}"><img src="/img/people.png"/></a>
     <a href="/profil/edit/{{Auth::user()->id}}"><img src="/img/settings.png"/></a>
 </footer>

@@ -21,7 +21,8 @@
             <h4>{{$user->name}}</h4>
             <span>{{$user->age}} ans</span>
             <p>{{$user->bio}}</p>
-            <span>Points: {{$user->nbpoints}}</span>
+            <span>Points: {{$user->nbpoints}}</span><br>
+            <a href="/logout" style="color:dimgrey">Se déconnecter</a>
         </div>
     </div>
 
