@@ -8,8 +8,8 @@
             <form method="post" id="formuser" action="/profil/update/{{$profil->id}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form_profil">
-                     <input id="avatar" id="imgInp"  type="file" name="avatar" style="display: none;" onchange="readURL(this)">
-                    <label for="avatar" style="width: 100vw;"><img id="img" src="{{$profil->avatar}}"></label><br>
+                     <input id="input_image" type="file" name="avatar" style="display: none;">
+                    <label for="input_image" style="width: 100vw;"><img id="img" src="{{$profil->avatar}}"></label><br>
                     <div id="ptitphrase">Appuyez sur votre avatar pour le changer</div>
                 </div>
                 <div>
