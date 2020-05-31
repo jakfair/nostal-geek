@@ -129,6 +129,19 @@ class deficontroller extends Controller
         $res->save();
         return redirect()->to('/fiche/'.$request->input('idfiche'));
     }
+    public function deconfirm(Request $request){
+        $user = Auth::user();
+        $defi = defi::join('liendefi', function($join)
+        {
+            $join->on('liendefi.iddefi', '=', 'defis.id')->where('liendefi.iduser', '=', auth::id());
+        })->where('liendefi.id','=',$request->input('idliendefi'))->first();
+        $user->nbpoints = $user->nbpoints - $defi->nbPoint;
+        $user->save();
+        $res=liendefi::where('id','=',$request->input('idliendefi'))->first();
+        $res->status = "a faire";
+        $res->save();
+        return redirect()->to('/fiche/'.$request->input('idfiche'));
+    }
     public function confirmdefi($id){
         $defi = defi::find($id);
         $defi->status = "confirme";

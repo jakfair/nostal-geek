@@ -57,11 +57,14 @@
                                 <form method="post" action="/success/confirm">
                                     {{ csrf_field() }}
                                     <input hidden name="idliensucces" value="{{$general->liensucces_id}}">
-                                    <input hidden name="idfiche" value="{{$general->id}}">
                                     <button type="submit"><img src="/img/cercle.png"></button>
                                 </form>
                             @else
-                                <span class="objectif"><img src="/img/check.png"></span>
+                                <form method="post" action="/success/deconfirm">
+                                    {{ csrf_field() }}
+                                    <input hidden name="idliensucces" value="{{$general->liensucces_id}}">
+                                    <button type="submit"><img src="/img/check.png"></button>
+                                </form>
                             @endif
                     </div>
                 </div>

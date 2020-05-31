@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/defi/update/{id}','deficontroller@update')->where('id', '[0-9]+');
     route::get('/defi/destroy/{id}','deficontroller@destroy')->where('id', '[0-9]+');
     route::post('/defi/confirm','deficontroller@confirm');
+    route::post('/defi/deconfirm','deficontroller@deconfirm');
     route::get('/defi/confirmer/{id}','deficontroller@confirmdefi')->where('id', '[0-9]+');
 
     route::get('/success/{id}','successcontroller@show')->where('id', '[0-9]+');
@@ -49,6 +50,7 @@ Route::group(['middleware' => ['auth']], function() {
     route::post('/success/update/{id}','successcontroller@update')->where('id', '[0-9]+');
     route::get('/success/destroy/{id}','successcontroller@destroy')->where('id', '[0-9]+');
     route::post('success/confirm','firstcontroller@confirmsucces');
+    route::post('success/deconfirm','firstcontroller@deconfirmsucces');
     route::get('/success/confirmer/{id}','successcontroller@confirmsucces')->where('id', '[0-9]+');
 
     route::get('/profil/{id}','profilcontroller@show')->where('id', '[0-9]+');

@@ -8,9 +8,9 @@
             <form method="post" id="formuser" action="/profil/update/{{$profil->id}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form_profil">
-                     <input id="avatar" id="imgInp"  type="file" name="avatar" style="display: none;">
-                    <label for="avatar" style="width: 100vw;"><img id="blah" src="{{$profil->avatar}}"></label><br>
-                    <div id="ptitphrase">Appuyer sur votre avatar pour le changer</div>
+                     <input id="avatar" id="imgInp"  type="file" name="avatar" style="display: none;" onchange="readURL(this)">
+                    <label for="avatar" style="width: 100vw;"><img id="img" src="{{$profil->avatar}}"></label><br>
+                    <div id="ptitphrase">Appuyez sur votre avatar pour le changer</div>
                 </div>
                 <div>
                     <label>Bio</label><br/>
@@ -20,7 +20,7 @@
                     <label>Votre âge</label><br>
                     <input type="text" name="age" placeholder="Age" value="{{$profil->age}}">
                 </div>
-                <button type="submit">Envoyer</button>
+                <button type="submit">Modifier votre profil</button>
             </form>
         </div>
         @else

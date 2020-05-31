@@ -46,7 +46,12 @@
                                 <button type="submit"><img src="/img/cercle.png"></button>
                             </form>
                         @else
-                            <span class="objectif"><img src="/img/check.png"></span>
+                            <form method="post" action="/defi/deconfirm">
+                                {{ csrf_field() }}
+                                <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
+                                <input hidden name="idfiche" value="{{$fiche->id}}">
+                                <button type="submit"><img src="/img/check.png"></button>
+                            </form>
                         @endif
                     </div>
                 </div>
@@ -71,7 +76,12 @@
                                     <button type="submit"><img src="/img/cercle.png"></button>
                                 </form>
                             @else
-                                <span class="objectif"><img src="/img/check.png"></span>
+                                <form method="post" action="/defi/deconfirm">
+                                    {{ csrf_field() }}
+                                    <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
+                                    <input hidden name="idfiche" value="{{$fiche->id}}">
+                                    <button type="submit"><img src="/img/check.png"></button>
+                                </form>
                             @endif
                         </div>
                     </div>
@@ -96,7 +106,12 @@
                                     <button type="submit"><img src="/img/cercle.png"></button>
                                 </form>
                             @else
-                                <span class="objectif"><img src="/img/check.png"></span>
+                                <form method="post" action="/defi/deconfirm">
+                                    {{ csrf_field() }}
+                                    <input hidden name="idliendefi" value="{{$defi->liendefi_id}}">
+                                    <input hidden name="idfiche" value="{{$fiche->id}}">
+                                    <button type="submit"><img src="/img/check.png"></button>
+                                </form>
                             @endif
                         </div>
                     </div>

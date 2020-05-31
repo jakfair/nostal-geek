@@ -86,6 +86,19 @@ class firstcontroller extends Controller
         $res->save();
         return redirect()->to('/#section-defi');
     }
+    public function deconfirmsucces(Request $request){
+        $user = Auth::user();
+        $succes = success::join('liensucces', function($join)
+        {
+            $join->on('liensucces.idsucces', '=', 'succes.id')->where('liensucces.iduser', '=', auth::id());
+        })->where('liensucces.id','=',$request->input('idliensucces'))->first();
+        $user->nbpoints = $user->nbpoints - $succes->nbPoint;
+        $user->save();
+        $res = liensucces::where('id','=',$request->input('idliensucces'))->first();
+        $res->status = "a faire";
+        $res->save();
+        return redirect()->to('/#section-defi');
+    }
     public function search(Request $request){
         $fiches = fiche::where('nom','LIKE','%'.$request->input('search').'%')->where('status','=','confirme')->orderBy('nom', 'ASC')->get();
         return view("firstcontroller.search",["fiches"=>$fiches]);

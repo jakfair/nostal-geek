@@ -8,11 +8,11 @@
     <form method="post" id="formfiche" action="/form/addfiche" enctype="multipart/form-data">
         {{ csrf_field() }}
         <span class="fiche_form_text">Titre</span></br>
-            <input type="text" name="nom" placeholder="Entrez le nom de l'oeuvre" required><br/>
+            <input type="text" name="nom" placeholder="Entrez le nom de l'œuvre" required><br/>
         <span class="fiche_form_text">Description</span></br>
-        <textarea name="description" placeholder="entrez la description de l'oeuvre" required></textarea><br>
+        <textarea name="description" placeholder="Entrez la description de l'œuvre" required></textarea><br>
         <span class="fiche_form_text">Année de sortie</span></br>
-        <input type="text" name="annee" placeholder="Entrez l'année de sortie de l'oeuvre" required>
+        <input type="text" name="annee" placeholder="Entrez l'année de sortie de l'œuvre" required>
         <div class="button_radio_lst">
             <ul id="row">
                 <ul id="liste">
@@ -47,7 +47,7 @@
                         <option value="isekai" selected>Isekai</option>
                         <option value="science-fiction">Science-Fiction</option>
                         <option value="fantasy">Fantasy</option>
-                        <option value="comedie" selected>Comédie</option>
+                        <option value="comedie">Comédie</option>
                         <option value="action">Action</option>
                         <option value="drame">Drame</option>
                         <option value="jeunesse">Jeunesse</option>
@@ -58,6 +58,10 @@
                         <option value="horreur" selected>Horreur</option>
                         <option value="drame">Drame</option>
                         <option value="comedie">Comédie</option>
+                        <option value="fantasy">Fantastique</option>
+                        <option value="sitcom">Sitcom</option>
+                        <option value="aventure">Aventure</option>
+                        <option value="science-fiction">Science-Fiction</option>
                     </select>
                 </ul>
             </ul>
@@ -65,11 +69,11 @@
         </div>
         <div id="fichiers">
             <p>Ajouter une bannière</p>
-            <input id="input_banniere" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required/>
-                <label for="input_banniere"><img src="/img/plus.png"></label>
-            <p>Ajouter un icon</p>
-            <input id="input_icon" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required/>
-                <label for="input_icon"><img src="/img/plus.png"></label>
+            <input id="input_banniere" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required onchange="readURL(this)"/>
+                <label for="input_banniere"><img id="img" src="/img/plus.png"></label>
+            <p>Ajouter une icone</p>
+            <input id="input_icon" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required onchange="readURL2(this)"/>
+                <label for="input_icon"><img id="img2" src="/img/plus.png"></label>
         </div>
         <div id="liens">
             <input class="jeu" type="text" name="lienAchat" placeholder="Lien pour acheter"/>
@@ -78,7 +82,7 @@
             <input class="cinema" type="text" name="lienVoir" placeholder="Lien pour regarder" style="display: none"/>
         </div>
         <div id="buttonsend">
-            <button type="submit">Envoyer</button>
+            <button type="submit">Proposer une fiche</button>
         </div>
     </form>
     </div>

@@ -9,7 +9,9 @@
             <option value="mensuel">Mensuel</option>
         </select>
         <input type="number" name="points" placeholder="Nombre de points" required>
-        <input type="file" name="icone" accept='image/png, image/jpeg' required/>
+        <div style="font-size: 3rem">Ajouter une icone !</div>
+        <input id="icon_defi" type="file" name="icone" accept='image/png, image/jpeg' required style="display: none" onchange="readURL(this)"/>
+        <label for="icon_defi"><img id="img" src="/img/plus.png" style="width: 100px"></label>
         <input type="hidden" name="idjeu" value="{{$fiche->id}}">
         <button type="submit"><img src="/img/next.png"/></button>
     </form>

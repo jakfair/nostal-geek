@@ -59,28 +59,39 @@ function toggleprofil(type){
         buttonsearch[i].style.backgroundColor = "transparent";
     }
     document.getElementById("buttonsearch"+type).style.backgroundColor  = "#52BEC8";
-
 }
-//
-// $(document).ready(function(){
-//
-//     $("#fav").click(function(){
-//         $("#fond").slideToggle("slow");
-//     });
-//
-//     $("#dessins").click(function(){
-//         $("#fond_dessin").slideToggle("slow");
-//     });
-//
-//     $("#movie").click(function(){
-//         $("#fond_films").slideToggle("slow");
-//     });
-//
-//     $("#game").click(function(){
-//         $("#fond_jeux").slideToggle("slow");
-//     });
-//
-// });
+function readURL(input) {
+    var url = input.value;
+    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#img').attr('src', e.target.result);
+            document.getElementById('img').style.width = "50%";
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+    else{
+        $('#img').attr('src', '/assets/no_preview.png');
+    }
+}
+function readURL2(input) {
+    var url = input.value;
+    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#img2').attr('src', e.target.result);
+            document.getElementById('img2').style.width = "50%";
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+    else{
+        $('#img').attr('src', '/assets/no_preview.png');
+    }
+}
 $(window).load(function(){
     function readURL(input) {
         if (input.files && input.files[0]) {
