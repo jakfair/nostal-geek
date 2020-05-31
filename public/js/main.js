@@ -60,7 +60,8 @@ function toggleprofil(type){
     }
     document.getElementById("buttonsearch"+type).style.backgroundColor  = "#52BEC8";
 }
-function readURL(input) {
+$('#input_image').on('change', function(){
+    var input = document.getElementById('input_image');
     var url = input.value;
     var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
     if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
@@ -75,8 +76,9 @@ function readURL(input) {
     else{
         $('#img').attr('src', '/assets/no_preview.png');
     }
-}
-function readURL2(input) {
+});
+$('#input_image2').on('change', function(){
+    var input = document.getElementById('input_image2');
     var url = input.value;
     var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
     if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
@@ -91,7 +93,7 @@ function readURL2(input) {
     else{
         $('#img').attr('src', '/assets/no_preview.png');
     }
-}
+});
 $(window).load(function(){
     function readURL(input) {
         if (input.files && input.files[0]) {

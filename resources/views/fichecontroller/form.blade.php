@@ -69,11 +69,11 @@
         </div>
         <div id="fichiers">
             <p>Ajouter une bannière</p>
-            <input id="input_banniere" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required onchange="readURL(this)"/>
-                <label for="input_banniere"><img id="img" src="/img/plus.png"></label>
+            <input id="input_image" type="file" name="banniere" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_image"><img id="img" src="/img/plus.png"></label>
             <p>Ajouter une icone</p>
-            <input id="input_icon" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required onchange="readURL2(this)"/>
-                <label for="input_icon"><img id="img2" src="/img/plus.png"></label>
+            <input id="input_image2" type="file" name="icone" accept='image/png, image/jpeg' style="display: none" required/>
+                <label for="input_image2"><img id="img2" src="/img/plus.png"></label>
         </div>
         <div id="liens">
             <input class="jeu" type="text" name="lienAchat" placeholder="Lien pour acheter"/>
