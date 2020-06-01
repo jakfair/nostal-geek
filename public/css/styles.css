@@ -72,7 +72,7 @@ input{
     border: none;
     height: 50px;
     width: 75%;
-    min-height: 3vh;
+    min-height: 30px;
     margin-top: 3vh;
     font-size: 1.8rem;
     padding-left: 10px;
@@ -133,7 +133,8 @@ input{
     -ms-appearance: none;
     border: solid #95291E 2px;
     background-color: #95291E;
-    width: 2vh;
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
     transition-duration: 0.5s;
     margin:0px;
@@ -151,7 +152,6 @@ input[type="checkbox"]:checked {
 }
 input[type="checkbox"]:checked:after {
     content: "X";
-    margin-left: 5px;
 }
 
 .btn{
